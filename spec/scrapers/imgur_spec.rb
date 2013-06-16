@@ -21,7 +21,7 @@ module Scrapers
     let(:url) {"http://imgur.com/v70StgA"}
 
     it "should return the download link from a given url" do
-      Scrapers.imgur(url).should =~ %{http://imgur.com/download/v70StgA/}
+      Scrapers.imgur(url).should =~ %r{http://imgur.com/download/v70StgA/}
     end
 
   end

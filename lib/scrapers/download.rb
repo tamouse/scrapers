@@ -13,25 +13,24 @@ require 'mechanize'
 
 module Scrapers
 
-  module_function
+  module Download
 
-  def download(url,dir=".")
-    @agent = Mechanize.new
-    @agent.pluggable_parser.default = Mechanize::Download
-    @dir = validate_directory(download_dir)
-    dl = @agent.get(url)
-    Dir.chdir(@dir) do |dir|
-      dl.save()
+    def self.download(url,dir=".")
+      @agent = Mechanize.new
+      @agent.pluggable_parser.default = Mechanize::Download
+      @dir = validate_directory(dir)
+      dl = @agent.get(url)
+      Dir.chdir(@dir) do |dir|
+        dl.save()
+      end
+      File.join(@dir,dl.filename)
     end
-    File.join(@dir,dl.filename)
+
+    def self.validate_directory(d)
+      raise "#{d} is not a writable directory!" unless File.directory?(d) and File.writable?(d)
+      d
+    end
+
   end
-
-  private
-
-  def validate_directory(d)
-    raise "#{d} is not a writable directory!" unless File.directory?(d) and File.writable?(d)
-    d
-  end
-
+  
 end
- 
