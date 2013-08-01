@@ -1,0 +1,322 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://apod.nasa.gov/apod/astropix.html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mechanize/2.7.1 Ruby/2.0.0p247 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - apod.nasa.gov
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 31 Jul 2013 14:26:22 GMT
+      Server:
+      - WebServer/1.0
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '4300'
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<html>\n<head>\n<title>Astronomy Picture of the Day\n</title>\n<!--
+        gsfc meta tags -->\n<meta name=\"orgcode\" content=\"661\">\n<meta name=\"rno\"
+        content=\"phillip.a.newman\">\n<meta name=\"content-owner\" content=\"Jerry.T.Bonnell.1\">\n<meta
+        name=\"webmaster\" content=\"Stephen.F.Fantasia.1\">\n<meta name=\"description\"
+        content=\"A different astronomy and space science\nrelated image is featured
+        each day, along with a brief explanation.\">\n<!-- -->\n<meta name=\"keywords\"
+        content=\"temperature, climate change, Earth\">\n</head>\n<body BGCOLOR=\"#F4F4FF\"
+        text=\"#000000\" link=\"#0000FF\" vlink=\"#7F0F9F\"\nalink=\"#FF0000\">\n\n<center>\n<h1>
+        Astronomy Picture of the Day </h1>\n<p>\n\n<a href=\"archivepix.html\">Discover
+        the cosmos!</a>\nEach day a different image or photograph of our fascinating
+        universe is\nfeatured, along with a brief explanation written by a professional
+        astronomer.\n<p>\n\n2013 July 31  \n<br>\n<iframe width=\"960\" height=\"540\"
+        src=\"//www.youtube.com/embed/lV8PI4R5nI4?rel=0\" frameborder=\"0\" allowfullscreen></iframe>\n\n</center>\n\n<center>\n<b>
+        130 Years of Earth Surface Temperatures </b> <br> \n<b> Image Credit: </b>
+        \n<a href=\"http://www.giss.nasa.gov/\">GISS</a>, \n<a href=\"http://www.nasa.gov/\">NASA</a>\n</center>
+        <p> \n\n<b> Explanation: </b> \nHow has the surface temperature of Earth been
+        changing?\n\nTo help find out, \n<a href=\"http://4.bp.blogspot.com/-I5x1L0Ookkw/T63-XqMylVI/AAAAAAAAERY/MR0wgauO3xU/s1600/Earth.jpg\"\n>Earth
+        scientists</a> collected temperature records from over 1000 \n<a href=\"http://commons.wikimedia.org/wiki/File:NOAA-NDBC-discus-buoy.jpg\"\n>weather
+        stations</a> around the globe since 1880, and combined them with modern satellite
+        data.\n\nThe <a href=\"http://www.youtube.com/watch?v=lV8PI4R5nI4\">above
+        movie</a> \ndramatizes the result showing 130 years of \nplanet-wide temperature
+        changes relative to the local average \ntemperatures in the mid-1900s.\n\nIn
+        the <a href=\"http://www.nasa.gov/topics/earth/features/2011-temps.html\"\n>above
+        global maps</a>, red means warmer and \n<a href=\"http://www.madsci.org/posts/archives/2001-03/984443967.As.r.html\">blue
+        means colder</a>.\n\nOn average, \n<a href=\"http://www.washingtonpost.com/blogs/wonkblog/wp/2013/07/29/how-to-prove-to-a-global-warming-denier-that-climate-change-is-real-in-14-seconds/\">the
+        display</a> demonstrates that the \n<a href=\"ap090421.html\">temperature
+        on Earth</a> has increased by nearly one degree \n<a href=\"http://en.wikipedia.org/wiki/Celsius\">Celsius</a>
+        over the past 130 years, and many of the \n<a href=\"http://www.ncdc.noaa.gov/news/ncdc-announces-warmest-year-record-contiguous-us\"\n>warmest
+        years on record</a> have occurred only recently.\n\n<a href=\"http://climate.nasa.gov/\">Global
+        climate change</a> is of more than passing interest -- it is linked to global
+        \n<a href=\"http://news.nationalgeographic.com/news/2013/13/130215-severe-storm-climate-change-weather-science/\">weather
+        severity</a> and coastal \n<a href=\"http://epa.gov/climatestudents/impacts/signs/sea-level.html\"\n>sea
+        water levels</a>. \n\n\n\n<p> <center> \n<b> Tomorrow's picture: </b>double
+        take\n\n<p> <hr>\n<a href=\"ap130730.html\">&lt;</a>\n| <a href=\"archivepix.html\">Archive</a>\n|
+        <a href=\"lib/aptree.html\">Index</a>\n| <a href=\"http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search\">Search</a>\n|
+        <a href=\"calendar/allyears.html\">Calendar</a>\n| <a href=\"/apod.rss\">RSS</a>\n|
+        <a href=\"lib/edlinks.html\">Education</a>\n| <a href=\"lib/about_apod.html\">About
+        APOD</a>\n| <a href=\n\"http://asterisk.apod.com/discuss_apod.php?date=130731\">Discuss</a>\n|
+        <a href=\"ap130801.html\">&gt;</a>\n\n<hr><p>\n<b> Authors & editors: </b>\n<a
+        href=\"http://www.phy.mtu.edu/faculty/Nemiroff.html\">Robert Nemiroff</a>\n(<a
+        href=\"http://www.phy.mtu.edu/\">MTU</a>) &\n<a href=\"http://antwrp.gsfc.nasa.gov/htmltest/jbonnell/www/bonnell.html\"\n>Jerry
+        Bonnell</a> (<a href=\"http://www.astro.umd.edu/\">UMCP</a>)<br>\n<b>NASA
+        Official: </b> Phillip Newman\n<a href=\"lib/about_apod.html#srapply\">Specific
+        rights apply</a>.<br>\n<a href=\"http://www.nasa.gov/about/highlights/HP_Privacy.html\">NASA
+        Web\nPrivacy Policy and Important Notices</a><br>\n<b>A service of:</b>\n<a
+        href=\"http://astrophysics.gsfc.nasa.gov/\">ASD</a> at\n<a href=\"http://www.nasa.gov/\">NASA</a>
+        /\n<a href=\"http://www.nasa.gov/centers/goddard/\">GSFC</a>\n<br><b>&</b>
+        <a href=\"http://www.mtu.edu/\">Michigan Tech. U.</a><br>\n</center>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Wed, 31 Jul 2013 14:26:23 GMT
+- request:
+    method: get
+    uri: http://apod.nasa.gov/apod/ap130730.html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mechanize/2.7.1 Ruby/2.0.0p247 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - apod.nasa.gov
+      Referer:
+      - !ruby/object:URI::HTTP
+        scheme: http
+        user: 
+        password: 
+        host: apod.nasa.gov
+        port: 80
+        path: /apod/astropix.html
+        query: 
+        opaque: 
+        registry: 
+        fragment: 
+        parser: 
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 31 Jul 2013 14:51:22 GMT
+      Server:
+      - WebServer/1.0
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '5100'
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<html>\n<head>\n<title> APOD: 2013 July 30 - The Eskimo Nebula from
+        Hubble and Chandra       \n</title>\n<!-- gsfc meta tags -->\n<meta name=\"orgcode\"
+        content=\"661\">\n<meta name=\"rno\" content=\"phillip.a.newman\">\n<meta
+        name=\"content-owner\" content=\"Jerry.T.Bonnell.1\">\n<meta name=\"webmaster\"
+        content=\"Stephen.F.Fantasia.1\">\n<meta name=\"description\" content=\"A
+        different astronomy and space science\nrelated image is featured each day,
+        along with a brief explanation.\">\n<!-- -->\n<meta name=\"keywords\" content=\"Eskimo
+        Nebula, NGC 2392, planetary nebula\">\n</head>\n<body BGCOLOR=\"#F4F4FF\"
+        text=\"#000000\" link=\"#0000FF\" vlink=\"#7F0F9F\"\nalink=\"#FF0000\">\n\n<center>\n<h1>
+        Astronomy Picture of the Day </h1>\n<p>\n\n<a href=\"archivepix.html\">Discover
+        the cosmos!</a>\nEach day a different image or photograph of our fascinating
+        universe is\nfeatured, along with a brief explanation written by a professional
+        astronomer.\n<p>\n\n2013 July 30  \n<br>\n<a href=\"image/1307/ngc2392_hubblechandra_3600.jpg\">\n<IMG
+        SRC=\"image/1307/ngc2392_hubblechandra_960.jpg\"\nalt=\"See Explanation.  Clicking
+        on the picture will download\n the highest resolution version available.\"></a>\n</center>\n\n<center>\n<b>
+        The Eskimo Nebula from Hubble and Chandra </b> <br> \n<b> Image Credit: </b>
+        \ \n<i> X-ray:</i> \n<a href=\"http://www.nasa.gov/\">NASA</a>/<a \nhref=\"http://cxc.harvard.edu/\">CXC</a>/<a
+        \nhref=\"http://www.iaa.es/\">IAA-CSIC</a>/<a \nhref=\"http://lanl.arxiv.org/abs/1302.3886\">N.
+        Ruiz et al.</a>;\n<i> Optical: </i> \n<a href=\"http://www.nasa.gov/\">NASA</a>/<a
+        \nhref=\" http://www.stsci.edu/institute/\">STScI</a>\n</center> <p> \n\n<b>
+        Explanation: </b> \nIn 1787, astronomer\n<a href=\"http://en.wikipedia.org/wiki/William_Herschel\">William
+        Herschel</a> discovered the\n<a href=\"http://en.wikipedia.org/wiki/Eskimo_Nebula\"\n>Eskimo
+        Nebula</a>.  \n\nFrom the ground, NGC 2392 resembles a person's head\nsurrounded
+        by a <a href=\"\nhttp://www.oregonlink.com/arctic/cormorant_parka.html\"\n>parka</a>
+        hood.  \n\nIn 2000, the\n<a href=\"ap021124.html\">Hubble Space Telescope</a>
+        imaged the\n<a href=\"http://www.noao.edu/outreach/aop/observers/n2392.html\"\n>Eskimo
+        Nebula</a> in visible light, while the nebula was \n<a href=\"http://chandra.harvard.edu/photo/2013/ngc2392/ngc2392_xray.jpg\"\n>imaged
+        in X-rays</a> \nby the <a href=\"http://chandra.harvard.edu/about/\">Chandra
+        X-ray Observatory</a> \nin 2007.\n\nThe <a href=\"http://chandra.harvard.edu/photo/2013/ngc2392/\">above
+        combined visible-X ray image</a>, with X-rays emitted by central hot gas and
+        shown in pink, was released last week.\n\nFrom space, the <a href=\"http://www.youtube.com/watch?v=Uxht89xv4-o\"\n>nebula
+        displays</a> gas clouds so complex they are\n<a href=\"http://adsabs.harvard.edu/abs/2005A%26A...430L..69G\"\n>not
+        fully understood</a>.  \n\nThe\n<a href=\"http://adsabs.harvard.edu/abs/1990ApJ...362..226O\">Eskimo
+        Nebula</a> \nis clearly a\n<a href=\"http://antwrp.gsfc.nasa.gov/apod/planetary_nebulae.html\"\n>planetary
+        nebula</a>, and the gas seen above composed the\nouter layers of a\n<a href=\"sun.html\">Sun</a>-like
+        star only 10,000 years ago.  \n\nThe inner filaments <a href=\n\"http://hubblesite.org/newscenter/newsdesk/archive/releases/2000/07/image/a\"\n>visible
+        above</a> are being ejected by strong\n\n<a href=\"http://www-istp.gsfc.nasa.gov/Education/wsolwind.html\"\n>wind</a>
+        of particles from the central star.  \n\nThe outer disk contains unusual\n<a
+        href=\"http://chandra.harvard.edu/photo/cosmic_distance.html\"\n>light-year</a>
+        long orange filaments.\n\nThe <a href=\"http://en.wikipedia.org/wiki/Eskimo\">Eskimo</a>\nNebula
+        spans about 1/3 of a light year and lies in our\n<a href=\"ap090219.html\">Milky
+        Way Galaxy</a>,\nabout 3,000 light years distant, toward the constellation
+        of the Twins\n(<a href=\"http://en.wikipedia.org/wiki/Gemini_(constellation)\">Gemini</a>).\n\n\n<p>
+        <center> \n<b> Tomorrow's picture: </b><a href=\"ap130731.html\">reddening
+        earth</a>\n\n<p> <hr>\n<a href=\"ap130729.html\">&lt;</a>\n| <a href=\"archivepix.html\">Archive</a>\n|
+        <a href=\"lib/aptree.html\">Index</a>\n| <a href=\"http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search\">Search</a>\n|
+        <a href=\"calendar/allyears.html\">Calendar</a>\n| <a href=\"/apod.rss\">RSS</a>\n|
+        <a href=\"lib/edlinks.html\">Education</a>\n| <a href=\"lib/about_apod.html\">About
+        APOD</a>\n| <a href=\n\"http://asterisk.apod.com/discuss_apod.php?date=130730\">Discuss</a>\n|
+        <a href=\"ap130731.html\">&gt;</a>\n\n<hr><p>\n<b> Authors & editors: </b>\n<a
+        href=\"http://www.phy.mtu.edu/faculty/Nemiroff.html\">Robert Nemiroff</a>\n(<a
+        href=\"http://www.phy.mtu.edu/\">MTU</a>) &\n<a href=\"http://antwrp.gsfc.nasa.gov/htmltest/jbonnell/www/bonnell.html\"\n>Jerry
+        Bonnell</a> (<a href=\"http://www.astro.umd.edu/\">UMCP</a>)<br>\n<b>NASA
+        Official: </b> Phillip Newman\n<a href=\"lib/about_apod.html#srapply\">Specific
+        rights apply</a>.<br>\n<a href=\"http://www.nasa.gov/about/highlights/HP_Privacy.html\">NASA
+        Web\nPrivacy Policy and Important Notices</a><br>\n<b>A service of:</b>\n<a
+        href=\"http://astrophysics.gsfc.nasa.gov/\">ASD</a> at\n<a href=\"http://www.nasa.gov/\">NASA</a>
+        /\n<a href=\"http://www.nasa.gov/centers/goddard/\">GSFC</a>\n<br><b>&</b>
+        <a href=\"http://www.mtu.edu/\">Michigan Tech. U.</a><br>\n</center>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Wed, 31 Jul 2013 14:51:22 GMT
+- request:
+    method: get
+    uri: http://apod.nasa.gov/apod/ap130731.html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Mechanize/2.7.1 Ruby/2.0.0p247 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - apod.nasa.gov
+      Referer:
+      - !ruby/object:URI::HTTP
+        scheme: http
+        user: 
+        password: 
+        host: apod.nasa.gov
+        port: 80
+        path: /apod/ap130730.html
+        query: 
+        opaque: 
+        registry: 
+        fragment: 
+        parser: 
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 31 Jul 2013 14:51:22 GMT
+      Server:
+      - WebServer/1.0
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '4362'
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<html>\n<head>\n<title> APOD: 2013 July 31 - 130 Years of Earth Surface
+        Temperatures \n</title>\n<!-- gsfc meta tags -->\n<meta name=\"orgcode\" content=\"661\">\n<meta
+        name=\"rno\" content=\"phillip.a.newman\">\n<meta name=\"content-owner\" content=\"Jerry.T.Bonnell.1\">\n<meta
+        name=\"webmaster\" content=\"Stephen.F.Fantasia.1\">\n<meta name=\"description\"
+        content=\"A different astronomy and space science\nrelated image is featured
+        each day, along with a brief explanation.\">\n<!-- -->\n<meta name=\"keywords\"
+        content=\"temperature, climate change, Earth\">\n</head>\n<body BGCOLOR=\"#F4F4FF\"
+        text=\"#000000\" link=\"#0000FF\" vlink=\"#7F0F9F\"\nalink=\"#FF0000\">\n\n<center>\n<h1>
+        Astronomy Picture of the Day </h1>\n<p>\n\n<a href=\"archivepix.html\">Discover
+        the cosmos!</a>\nEach day a different image or photograph of our fascinating
+        universe is\nfeatured, along with a brief explanation written by a professional
+        astronomer.\n<p>\n\n2013 July 31  \n<br>\n<iframe width=\"960\" height=\"540\"
+        src=\"//www.youtube.com/embed/lV8PI4R5nI4?rel=0\" frameborder=\"0\" allowfullscreen></iframe>\n\n</center>\n\n<center>\n<b>
+        130 Years of Earth Surface Temperatures </b> <br> \n<b> Image Credit: </b>
+        \n<a href=\"http://www.giss.nasa.gov/\">GISS</a>, \n<a href=\"http://www.nasa.gov/\">NASA</a>\n</center>
+        <p> \n\n<b> Explanation: </b> \nHow has the surface temperature of Earth been
+        changing?\n\nTo help find out, \n<a href=\"http://4.bp.blogspot.com/-I5x1L0Ookkw/T63-XqMylVI/AAAAAAAAERY/MR0wgauO3xU/s1600/Earth.jpg\"\n>Earth
+        scientists</a> collected temperature records from over 1000 \n<a href=\"http://commons.wikimedia.org/wiki/File:NOAA-NDBC-discus-buoy.jpg\"\n>weather
+        stations</a> around the globe since 1880, and combined them with modern satellite
+        data.\n\nThe <a href=\"http://www.youtube.com/watch?v=lV8PI4R5nI4\">above
+        movie</a> \ndramatizes the result showing 130 years of \nplanet-wide temperature
+        changes relative to the local average \ntemperatures in the mid-1900s.\n\nIn
+        the <a href=\"http://www.nasa.gov/topics/earth/features/2011-temps.html\"\n>above
+        global maps</a>, red means warmer and \n<a href=\"http://www.madsci.org/posts/archives/2001-03/984443967.As.r.html\">blue
+        means colder</a>.\n\nOn average, \n<a href=\"http://www.washingtonpost.com/blogs/wonkblog/wp/2013/07/29/how-to-prove-to-a-global-warming-denier-that-climate-change-is-real-in-14-seconds/\">the
+        display</a> demonstrates that the \n<a href=\"ap090421.html\">temperature
+        on Earth</a> has increased by nearly one degree \n<a href=\"http://en.wikipedia.org/wiki/Celsius\">Celsius</a>
+        over the past 130 years, and many of the \n<a href=\"http://www.ncdc.noaa.gov/news/ncdc-announces-warmest-year-record-contiguous-us\"\n>warmest
+        years on record</a> have occurred only recently.\n\n<a href=\"http://climate.nasa.gov/\">Global
+        climate change</a> is of more than passing interest -- it is linked to global
+        \n<a href=\"http://news.nationalgeographic.com/news/2013/13/130215-severe-storm-climate-change-weather-science/\">weather
+        severity</a> and coastal \n<a href=\"http://epa.gov/climatestudents/impacts/signs/sea-level.html\"\n>sea
+        water levels</a>. \n\n\n\n<p> <center> \n<b> Tomorrow's picture: </b><a href=\"ap130801.html\">double
+        take</a>\n\n<p> <hr>\n<a href=\"ap130730.html\">&lt;</a>\n| <a href=\"archivepix.html\">Archive</a>\n|
+        <a href=\"lib/aptree.html\">Index</a>\n| <a href=\"http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search\">Search</a>\n|
+        <a href=\"calendar/allyears.html\">Calendar</a>\n| <a href=\"/apod.rss\">RSS</a>\n|
+        <a href=\"lib/edlinks.html\">Education</a>\n| <a href=\"lib/about_apod.html\">About
+        APOD</a>\n| <a href=\n\"http://asterisk.apod.com/discuss_apod.php?date=130731\">Discuss</a>\n|
+        <a href=\"ap130801.html\">&gt;</a>\n\n<hr><p>\n<b> Authors & editors: </b>\n<a
+        href=\"http://www.phy.mtu.edu/faculty/Nemiroff.html\">Robert Nemiroff</a>\n(<a
+        href=\"http://www.phy.mtu.edu/\">MTU</a>) &\n<a href=\"http://antwrp.gsfc.nasa.gov/htmltest/jbonnell/www/bonnell.html\"\n>Jerry
+        Bonnell</a> (<a href=\"http://www.astro.umd.edu/\">UMCP</a>)<br>\n<b>NASA
+        Official: </b> Phillip Newman\n<a href=\"lib/about_apod.html#srapply\">Specific
+        rights apply</a>.<br>\n<a href=\"http://www.nasa.gov/about/highlights/HP_Privacy.html\">NASA
+        Web\nPrivacy Policy and Important Notices</a><br>\n<b>A service of:</b>\n<a
+        href=\"http://astrophysics.gsfc.nasa.gov/\">ASD</a> at\n<a href=\"http://www.nasa.gov/\">NASA</a>
+        /\n<a href=\"http://www.nasa.gov/centers/goddard/\">GSFC</a>\n<br><b>&</b>
+        <a href=\"http://www.mtu.edu/\">Michigan Tech. U.</a><br>\n</center>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Wed, 31 Jul 2013 14:51:22 GMT
+recorded_with: VCR 2.5.0

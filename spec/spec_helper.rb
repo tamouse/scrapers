@@ -1,4 +1,4 @@
-require 'webmock/rspec'
+#require 'webmock/rspec'
 require 'vcr'
 
 
@@ -19,5 +19,13 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
 end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'vcr_cassettes'
+  c.hook_into :webmock
+end
+
+
+
 
 require 'scrapers.rb'
