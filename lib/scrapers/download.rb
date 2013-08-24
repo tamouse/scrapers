@@ -27,6 +27,8 @@ module Scrapers
     end
 
     def self.validate_directory(d)
+      STDERR.puts caller(0,1).first +
+        "d: #{d.inspect}. directory? #{File.directory?(d)}. writable? #{File.writable?(d)}"
       raise "#{d} is not a writable directory!" unless File.directory?(d) and File.writable?(d)
       d
     end

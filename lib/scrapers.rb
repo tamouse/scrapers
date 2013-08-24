@@ -1,4 +1,7 @@
-require "scrapers/version"
-require "scrapers/download"
-require "scrapers/imgur"
-require 'scrapers/discoverynews'
+require 'mechanize'
+
+Dir[File.join(File.expand_path('../', __FILE__),'**','*.rb')].each {|file| require file}
+
+module Scrapers
+  
+end
