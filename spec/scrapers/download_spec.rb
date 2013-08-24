@@ -18,18 +18,16 @@ module Scrapers
     it {Scrapers::Download.should respond_to :download}
 
     context "download" do
-      let(:url) {"http://imgur.com/download/v70StgA/%2Asnrrrrrrrrrrrf%21%2A"}
-      Dir.mktmpdir do |dir|
-        let(:file) do
-          VCR.use_cassette("#{example.description.gsub(/^[-[:alnum:]]+/,'')}.cassette") do
-            file = Scrapers::Download.download(url)
-          end
+      before(:all) do
+        @url="http://imgur.com/download/v70StgA/%2Asnrrrrrrrrrrrf%21%2A"
+        VCR.use_cassette("download.cassette") do
+          @file = Scrapers::Download.download(@url,'tmp')
         end
+      end
         
-        it "saves the file" do
-          file.should =~ /.*snrrrrrrrrrrrf.*Imgur\.jpg/
-          File.exist?(file).should be_true
-        end
+      it "saves the file" do
+        @file.should =~ /.*snrrrrrrrrrrrf.*Imgur\.jpg/
+        File.exist?(@file).should be_true
       end
     end
     
