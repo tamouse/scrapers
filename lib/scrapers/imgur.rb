@@ -9,9 +9,6 @@
   
 =end
 
- 
-require 'mechanize'
-
 module Scrapers
 
   IMGUR_TEMPLATE="http://imgur.com/path"

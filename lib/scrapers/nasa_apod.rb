@@ -2,7 +2,7 @@
 
 nasa_apod.rb -- oneline desc
 
-Time-stamp: <2013-07-31 11:00:00 tamara>
+Time-stamp: <2013-08-23 22:47:58 tamara>
 Copyright (C) 2013 Tamara Temple Web Development
 Author:     Tamara Temple <tamouse@gmail.com>
 License:    MIT
@@ -47,7 +47,6 @@ module Scrapers
             apod[:guid] = page.uri.to_s
             apod[:content_encoded] = (page/("body")).to_html            
           end
-
 
         end
 

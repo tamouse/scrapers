@@ -8,7 +8,7 @@ module Scrapers
       before(:all) do
         @url = "http://allrecipes.com/recipe/morning-glory-muffins-i/detail.aspx"
         @recipe = VCR.use_cassette('allrecipes.morning-glory-muffins-i') do
-          Scrapers::AllRecipes.new.scrape(@url)
+          Scrapers::AllRecipes.scrape(@url)
         end
       end
       

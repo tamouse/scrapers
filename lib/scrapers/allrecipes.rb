@@ -3,17 +3,13 @@ require 'mechanize'
 
 module Scrapers
 
-  class AllRecipes
+  module AllRecipes
 
-    def initialize()
-      @agent = Mechanize.new
-    end
-
-    def scrape(url)
+    def self.scrape(url)
 
       results = Hash.new
 
-      @agent.get(url).tap do |page|
+      Scrapers.agent.get(url).tap do |page|
         results[:url] = page.uri.to_s
         results[:title] = page.title.strip
         results[:ingredients] = scrape_ingredients(page)
@@ -25,7 +21,7 @@ module Scrapers
 
     end
 
-    def scrape_ingredients(page)
+    def self.scrape_ingredients(page)
       page.
         search("ul.ingredient-wrap").
         search(".//li").
@@ -34,7 +30,7 @@ module Scrapers
       end
     end
 
-    def scrape_directions(page)
+    def self.scrape_directions(page)
       page.
         search("div.directLeft").first.
         search("li").
@@ -43,7 +39,7 @@ module Scrapers
       end
     end
 
-    def scrape_photo(page)
+    def self.scrape_photo(page)
       photo = page.search("img#imgPhoto").first
       Hash[photo.attributes.map{|k,v| [k,v.value]}]
     end

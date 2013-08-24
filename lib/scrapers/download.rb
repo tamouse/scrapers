@@ -16,10 +16,9 @@ module Scrapers
   module Download
 
     def self.download(url,dir=".")
-      @agent = Mechanize.new
-      @agent.pluggable_parser.default = Mechanize::Download
+      Scrapers.agent.pluggable_parser.default = Mechanize::Download
       @dir = validate_directory(dir)
-      dl = @agent.get(url)
+      dl = Scrapers.agent.get(url)
       Dir.chdir(@dir) do |dir|
         dl.save()
       end

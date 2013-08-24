@@ -19,8 +19,7 @@ module Scrapers
 
     def self.disco_downloads(url)
       @url = url.clone
-      @agent = Mechanize.new
-      @page = @agent.get(url)
+      @page = Scrapers.agent.get(url)
       images = @page.images_with(:class => "media-hero").map(&:src)
     end
 
