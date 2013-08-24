@@ -21,19 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-Scrapers is created as a module, either to mixin or call directly. See the various RDoc for explanation of each item.
-
-### Getting the download image from an imgur.com page
-
-    dir_path = File.join(APP.root,"downloads")
-    image_url = Scrapers.imgur "http://imgur.com/IMGURCODE"
-    local_path = Scrapers.download image_url, dir_path
-
-### Getting a comic from gocomics.com
-
-    dir_path = File.join(APP.root,"comics",comicname)
-	image_url = Scrapers.gocomics "http://gocomics/#{comicname}"
-	local_path = Scrapers.download image_url, dir_path
+See the various RDoc for explanation of each item.
 
 ## Contributing
 
