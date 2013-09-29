@@ -12,15 +12,21 @@ module Scrapers
 
       results = Hash.new
 
+      results[:comic] = comic
+
       url = URI.parse GOCOMIC_URL
       url.path = "/#{comic}"
 
-      page = Nokogiri::HTML(open(url.to_s))
       results[:url] = url.to_s
+
+      page = Nokogiri::HTML(open(url.to_s))
+
       results[:title] = scrape_title(page)
       results[:pubdate] = scrape_pubdate(page)
       results[:img_src] = scrape_image_source(page)
+
       results
+
     end
 
     def self.scrape_title(page)
