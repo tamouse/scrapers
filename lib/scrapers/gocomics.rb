@@ -1,4 +1,5 @@
-require 'mechanize'
+require 'open-uri'
+require 'nokogiri'
 
 
 module Scrapers
@@ -12,32 +13,29 @@ module Scrapers
       results = Hash.new
 
       url = URI.parse GOCOMIC_URL
-      url.path = (comic[0,1] == ?/) ? comic : ?/ + comic # absolutize
-      # the comic string
+      url.path = "/#{comic}"
 
-      Scrapers.agent.get(url).tap do |page|
-        results[:url] = page.uri.to_s
-        results[:title] = page.title.gsub(/[[:space:]]+/,' ').strip
-        results[:pubdate] = scrape_pubdate(page)
-        results[:img_src] = scrape_image_source(page)
-      end
-
+      page = Nokogiri::HTML(open(url.to_s))
+      results[:url] = url.to_s
+      results[:title] = scrape_title(page)
+      results[:pubdate] = scrape_pubdate(page)
+      results[:img_src] = scrape_image_source(page)
       results
+    end
 
+    def self.scrape_title(page)
+      page.at_css("title").content.strip.gsub(/[[:space:]]/,' ').squeeze(" ")
     end
 
     def self.scrape_pubdate(page)
-      Date.parse(page.
-                 search("ul.feature-nav > li").first.
-                 children.first.
-                 text).to_s
+      Date.parse(page.at_css("ul.feature-nav > li").content).to_s
     end
 
     def self.scrape_image_source(page)
       page.
-        search("p.feature_item").
-        search("img").first.
-        attribute("src").value
+        at_css("p.feature_item").
+        at_css("img").
+        attr("src")
     end
 
   end

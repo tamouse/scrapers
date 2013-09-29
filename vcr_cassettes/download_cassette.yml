@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - '*/*'
       User-Agent:
-      - Mechanize/2.7.1 Ruby/2.0.0p247 (http://github.com/sparklemotion/mechanize/)
+      - Mechanize/2.7.2 Ruby/2.0.0p247 (http://github.com/sparklemotion/mechanize/)
       Accept-Charset:
       - ISO-8859-1,utf-8;q=0.7,*;q=0.7
       Accept-Language:
@@ -29,23 +29,34 @@ http_interactions:
       message: OK
     headers:
       Server:
-      - nginx
+      - cloudflare-nginx
       Date:
-      - Sat, 24 Aug 2013 03:06:17 GMT
+      - Sun, 29 Sep 2013 04:04:47 GMT
       Content-Type:
       - image/jpeg
       Content-Length:
       - '16445'
       Connection:
-      - close
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d9f3af26e5347a90a7fc486be9576b1df1380427487085; expires=Mon, 23-Dec-2019
+        23:50:00 GMT; path=/; domain=.imgur.com
       Cache-Control:
-      - max-age=30, s-maxage=30, public, must-revalidate
+      - public, max-age=14400
       Content-Description:
       - File Transfer
       Content-Disposition:
       - attachment; filename="snrrrrrrrrrrrf! - Imgur.jpg"
       Content-Transfer-Encoding:
       - binary
+      Cf-Cache-Status:
+      - MISS
+      Vary:
+      - Accept-Encoding
+      Expires:
+      - Sun, 29 Sep 2013 08:04:47 GMT
+      Cf-Ray:
+      - b55ca9247910418
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -416,5 +427,5 @@ http_interactions:
         HWWxGuyWe4ndRRW5qVlJ1DdehotRRNMVcEqdiVFFUVRW7piEKKKon6PNArjs
         vC0adXdRRO9HHjfxn5KKKLNT/9k=
     http_version: 
-  recorded_at: Sat, 24 Aug 2013 03:06:17 GMT
-recorded_with: VCR 2.5.0
+  recorded_at: Sun, 29 Sep 2013 04:04:47 GMT
+recorded_with: VCR 2.6.0
