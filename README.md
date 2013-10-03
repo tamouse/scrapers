@@ -2,8 +2,8 @@
 
 A library of web site scrapers utilizing mechanize and other goodies. Helpful in gathering images, moving things, saving things, etc.
 
-LICENSE:: MIT
-WEBSITE:: http://github.com/tamouse/scrapers
+* LICENSE: MIT
+* WEBSITE: http://github.com/tamouse/scrapers
 
 ## Installation
 
