@@ -15,12 +15,17 @@ module Scrapers
 
   module Download
 
-    def self.download(url,dir=".")
+    def self.download(url,dir=".",overwrite=false)
       Scrapers.agent.pluggable_parser.default = Mechanize::Download
       @dir = validate_directory(dir)
       dl = Scrapers.agent.get(url)
       Dir.chdir(@dir) do |dir|
-        dl.save()
+        if overwrite
+          dl.save!()
+        else
+          dl.save()
+        end
+        
       end
       File.join(@dir,dl.filename)
     end
