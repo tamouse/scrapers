@@ -30,8 +30,8 @@ module Scrapers
       doc = Nokogiri::HTML(open(url.to_s))
       comic = doc.at_css("#comic img")
       results[:img_src] = comic.attr("src")
-      results[:hover_text] = comic.attr("title")
-      results[:title] = comic.attr("alt")
+      results[:img_title] = comic.attr("title")
+      results[:title] = results[:img_alt] = comic.attr("alt")
       results[:pubdate] = get_pubdate(results[:img_src])
 
       results

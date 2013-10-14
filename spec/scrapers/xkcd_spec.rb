@@ -11,8 +11,9 @@ describe Scrapers::Xkcd do
         :title      => "Sandwich",
         :url        => "http://xkcd.com/149/",
         :img_src    => "http://imgs.xkcd.com/comics/sandwich.png",
-        :hover_text => "Proper User Policy apparently means Simon Says.",
-        :pubdate    => "2010-02-01"
+        :img_title  => "Proper User Policy apparently means Simon Says.",
+        :img_alt    => "Sandwich",
+        :pubdate    => "2010-02-01",
       }
     end
     it "should retrieve the comic" do
