@@ -7,11 +7,12 @@ describe Scrapers::Xkcd do
       @comic = VCR.use_cassette("xkcd") do
         Scrapers::Xkcd.scrape 149
       end
-      @expected =
-        {:title => "Sandwich",
-        :url => "http://xkcd.com/149/",
-        :img_src => "http://imgs.xkcd.com/comics/sandwich.png",
-        :hover_text => "Proper User Policy apparently means Simon Says."
+      @expected = {
+        :title      => "Sandwich",
+        :url        => "http://xkcd.com/149/",
+        :img_src    => "http://imgs.xkcd.com/comics/sandwich.png",
+        :hover_text => "Proper User Policy apparently means Simon Says.",
+        :pubdate    => "2010-02-01"
       }
     end
     it "should retrieve the comic" do
