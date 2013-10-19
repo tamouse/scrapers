@@ -16,12 +16,14 @@ module Scrapers
   module Download
 
     def self.download(url,dir=".",overwrite=false)
-      Scrapers.agent.pluggable_parser.default = Mechanize::Download
+      # need a new agent each time!
+      agent = Mechanize.new
+      agent.pluggable_parser.default = Mechanize::Download
       @dir = validate_directory(dir)
-      dl = Scrapers.agent.get(url)
+      dl = agent.get(url)
       Dir.chdir(@dir) do |dir|
         if overwrite
-          dl.save!()
+          dl.save!(dl.filename)
         else
           dl.save()
         end

@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Mon, 14 Oct 2013 05:52:29 GMT
+      - Mon, 14 Oct 2013 08:28:22 GMT
       Content-Type:
       - image/jpeg
       Content-Length:
@@ -39,7 +39,7 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d445224e07251b9274f0999f1299b94431381729949134; expires=Mon, 23-Dec-2019
+      - __cfduid=dd8f7d8e0a4bd40103ee13f140f093bf51381739302835; expires=Mon, 23-Dec-2019
         23:50:00 GMT; path=/; domain=.imgur.com; HttpOnly
       Cache-Control:
       - public, max-age=14400
@@ -50,13 +50,13 @@ http_interactions:
       Content-Transfer-Encoding:
       - binary
       Cf-Cache-Status:
-      - MISS
+      - EXPIRED
       Vary:
       - Accept-Encoding
       Expires:
-      - Mon, 14 Oct 2013 09:52:29 GMT
+      - Mon, 14 Oct 2013 12:28:22 GMT
       Cf-Ray:
-      - bd200f61ac40424
+      - bd2e552be620424
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -427,5 +427,5 @@ http_interactions:
         HWWxGuyWe4ndRRW5qVlJ1DdehotRRNMVcEqdiVFFUVRW7piEKKKon6PNArjs
         vC0adXdRRO9HHjfxn5KKKLNT/9k=
     http_version: 
-  recorded_at: Mon, 14 Oct 2013 05:52:29 GMT
-recorded_with: VCR 2.5.0
+  recorded_at: Mon, 14 Oct 2013 08:28:22 GMT
+recorded_with: VCR 2.6.0

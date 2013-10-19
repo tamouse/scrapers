@@ -2,7 +2,7 @@
 
 nasa_apod.rb -- oneline desc
 
-Time-stamp: <2013-08-23 22:47:58 tamara>
+Time-stamp: <2013-10-15 00:17:15 tamara>
 Copyright (C) 2013 Tamara Temple Web Development
 Author:     Tamara Temple <tamouse@gmail.com>
 License:    MIT
@@ -23,35 +23,33 @@ module Scrapers
   
   module NasaApod
 
+    NASA_APOD_URL="http://asterisk.apod.com/library/APOD/APOD%20mirror/astropix.html"
+
     module_function
 
-    def scrape(url)
+    def scrape(url=nil)
+      url ||= NASA_APOD_URL
       apod = Hash.new
-      unless url.nil?
+      Mechanize.start do |m|
 
-        Mechanize.start do |m|
-
-          m.get url
+        m.get url
         
-          # APOD has a funky entry page, but we want the actual page
-          prev = m.current_page.link_with(:text => '<').href
-          m.get prev
-          canonical = m.current_page.link_with(:text => '>' ).href
-          m.get canonical
+        # APOD has a funky entry page, but we want the actual page
+        prev = m.current_page.link_with(:text => '<').href
+        m.get prev
+        canonical = m.current_page.link_with(:text => '>' ).href
+        m.get canonical
 
-          m.current_page.tap do |page|
-            apod[:title] = page.title.strip
-            apod[:link] = page.uri.to_s
-            apod[:description] = (page/("body")).text
-            apod[:pubDate] = page.response['date'].to_s
-            apod[:guid] = page.uri.to_s
-            apod[:content_encoded] = (page/("body")).to_html            
-          end
-
+        m.current_page.tap do |page|
+          apod[:title] = page.title.strip
+          apod[:link] = page.uri.to_s
+          apod[:description] = (page/("body")).text
+          apod[:pubDate] = page.response['date'].to_s
+          apod[:guid] = page.uri.to_s
+          apod[:content_encoded] = (page/("body")).to_html            
         end
 
       end
-      
       apod
     end
 
