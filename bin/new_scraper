@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+require 'thor'
+require 'scrapers'
+require "active_support/core_ext/string/inflections"
+require 'pry'
+
+class NewScraper < Thor::Group
+  include Thor::Actions
+  
+  argument :name
+  class_option :test_framework, :aliases => "-T", :default => :spec
+  
+  def self.source_root
+    File.expand_path("../../", __FILE__)
+  end
+
+
+  def create_lib_file
+    template("templates/new_scraper.tt", "lib/scrapers/#{name.underscore}.rb")
+  end
+
+  def create_test_file
+
+    if %w[test_unit minitest test].include?(options["test_framework"])
+      test = "test"
+    else
+      test = "spec"
+    end
+
+    template("templates/new_scraper_#{test}.tt", "#{test}/scrapers/#{name.underscore}_#{test}.rb")
+  end
+
+end
+
+NewScraper.start

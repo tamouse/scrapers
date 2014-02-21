@@ -1,0 +1,20 @@
+# -*- ruby -*-
+require 'spec_helper'
+require 'scrapers/<%= name.underscore %>'
+
+module Scrapers
+
+  describe <%= name %> do
+    it{should respond_to :scrape}
+    context "scraping" do
+      before(:all) do
+        @comic = VCR.use_cassette('<%= name.underscore %>') do
+          @result = Scrapers::<%= name %>.scrape
+        end
+      end
+      
+      it {expect(@result).to_not be_nil}
+      
+    end
+  end
+end
