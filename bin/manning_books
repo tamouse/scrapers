@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+require 'thor'
+require 'netrc'
+require 'scrapers/manning_books'
+require 'awesome_print'
+require 'pry'
+
+################################################################################
+#
+# Scraper for Manning Books I've purchased
+#
+# (Note: you need to log into Manning and have acutally purchased e-books.
+# They will appear on your dashboard.)
+#
+################################################################################
+
+class ManningBooks < Thor
+
+  MANNING = 'manning'
+
+  desc "download", "Downloads all the editions of all the books on your dashboard"
+  method_option :destination, :aliases => %w{-d --dest}, :desc => "Destination to store the downloads", :default => "."
+  method_option :user, :aliases => %w{-u -U}, :desc => "Manning user. Default is read from $HOME/.netrc"
+  method_option :password, :aliases => %w{-p -pw}, :desc => "Manning password. Default is read from $HOME/.netrc"
+
+  def download
+    netrc = Netrc.read
+    user, pw = netrc[MANNING]
+    user = options.fetch("user", user)
+    pw = options.fetch("password", pw)
+    destination = options.fetch("destination", nil)
+    STDERR.puts "destination: #{destination}, user: #{user}, pw: #{pw.length}"
+    binding.pry
+    Signal.trap('INT', proc { STDERR.puts "Download Interrupted"; exit(-1)})
+    results = Scrapers::ManningBooks.scrape destination, user, pw
+    ap results
+  end
+
+end
+
+ManningBooks.start
