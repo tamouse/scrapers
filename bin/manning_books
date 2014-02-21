@@ -5,7 +5,6 @@ require 'thor'
 require 'netrc'
 require 'scrapers/manning_books'
 require 'awesome_print'
-require 'pry'
 
 ################################################################################
 #
@@ -32,7 +31,6 @@ class ManningBooks < Thor
     pw = options.fetch("password", pw)
     destination = options.fetch("destination", nil)
     STDERR.puts "destination: #{destination}, user: #{user}, pw: #{pw.length}"
-    binding.pry
     Signal.trap('INT', proc { STDERR.puts "Download Interrupted"; exit(-1)})
     results = Scrapers::ManningBooks.scrape destination, user, pw
     ap results

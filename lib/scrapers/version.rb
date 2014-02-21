@@ -3,7 +3,7 @@ module Scrapers
 
     MAJOR = 1
     MINOR = 5
-    BUILD = 0
+    BUILD = 1
 
   end
   
