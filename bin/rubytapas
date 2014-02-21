@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
+require 'thor'
+require 'netrc'
+require 'scrapers/rubytapas'
+
+################################################################################
+#
+# Scraper for RubyTapas episodes.
+#
+# (Note: you need to subscribe to RupyTapas to download episodes.)
+#
+################################################################################
+
+class RubyTapasDownload < Thor
+
+  RUBYTAPAS="rubytapas.dpdcart.com"
+  RUBYTAPAS_EPISODE_URL = "https://#{RUBYTAPAS}/subscriber/post?id=\#{episode}"
+
+  desc "download", "Downloads the listed episode's files into a new directory with the episode tag in the given directory"
+  method_option :destination, :aliases => %w{-d --dest}, :desc => "Destination to store the downloads", :default => "."
+  method_option :url, :desc => "url to episode downloads (overrides episode)"
+  method_option :episode, :aliases => %w{-e --ep}, :desc => "Episode number"
+  method_option :user, :aliases => %w{-u -U}, :desc => "dpdcart user. Default is read from $HOME/.netrc"
+  method_option :password, :aliases => %w{-p -pw}, :desc => "dpdcart password. Default is read from $HOME/.netrc"
+
+  def download
+    netrc = Netrc.read
+    user, pw = netrc[RUBYTAPAS]
+    user = options.fetch("user", user)
+    pw = options.fetch("password", pw)
+    url = options.fetch("url", nil)
+    episode = options.fetch("episode", nil)
+    destination = options.fetch("destination", nil)
+    STDERR.puts "destination: #{destination}, episode: #{episode}, url: #{url}, user: #{user}, pw: #{pw.length}"
+    unless url
+      raise "Must give episode or full url" unless episode
+      url = RUBYTAPAS_EPISODE_URL.sub(%r[\#{episode}], episode)
+    end
+    Scrapers::RubyTapas.scrape url, user, pw, destination
+  end
+
+end
+
+RubyTapasDownload.start

@@ -1,5 +1,6 @@
 require 'fileutils'
 require 'ostruct'
+require 'mechanize'
 
 module Scrapers
   
