@@ -37,7 +37,7 @@ module Scrapers
 
         m.current_page.tap do |page|
           tapas.title = page.title.strip
-          tapas.episode_dir = File.join(dest,tapas.title.split("|").first.strip.downcase.gsub(%r{\s+},'-'))
+          tapas.episode_dir = File.join(dest,tapas.title.split("|").first.strip.downcase.gsub(%r{[^[:alnum:][:space:]]},' ').gsub(%r{[[:space:]]+},'-'))
           tapas.attachments = page.links_with(:href => %r{\bdownload\b})
           puts "Fetching and saving #{tapas.title} into #{tapas.episode_dir}"
           FileUtils.mkdir(tapas.episode_dir)
