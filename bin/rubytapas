@@ -41,6 +41,35 @@ class RubyTapasDownload < Thor
     Scrapers::RubyTapas.scrape url, user, pw, destination
   end
 
+  desc "all", "Download all rubytapas episodes"
+  method_option :destination, :aliases => %w{-d --dest}, :desc => "Destination of dowload", :default => '.'
+  method_option :url, :desc => "url of showlist", :default => 'https://rubytapas.dpdcart.com/subscriber/content'
+  method_option :user, :aliases => %w{-u -U}, :desc => "dpdcart user. Default is read from $HOME/.netrc"
+  method_option :password, :aliases => %w{-p -pw}, :desc => "dpdcart password. Default is read from $HOME/.netrc"
+
+  def all
+    STDERR.puts options.inspect
+
+    netrc = Netrc.read
+    user, pw = netrc[RUBYTAPAS]
+    user = options.fetch("user", user)
+    pw = options.fetch("password", pw)
+    url = options.fetch("url", nil)
+    destination = options.fetch("destination", nil)
+    STDERR.puts "destination: #{destination}, url: #{url}, user: #{user}, pw: #{pw.length}"
+    raise "Must give url" unless url
+
+    showlist_urls = Scrapers::RubyTapas.showlist(url, user, pw)
+
+    showlist_urls.each do |url|
+      Scrapers::RubyTapas.scrape url, user, pw, destination
+      print "pausing..."
+      sleep 5
+      puts "."
+    end
+
+  end
+
 end
 
 RubyTapasDownload.start

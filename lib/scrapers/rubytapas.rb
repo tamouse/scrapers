@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'ostruct'
 require 'mechanize'
+require 'uri'
 
 module Scrapers
   
@@ -32,20 +33,13 @@ module Scrapers
 
         tapas = OpenStruct.new
 
-        # First time, we will get redirected to the login page
-        m.get url
-        m.current_page.form.field_with(:name => "username").value = user
-        m.current_page.form.field_with(:name => "password").value = pw
-        m.current_page.form.submit
-
-        # Second time, we should land on episode page
-        m.get url
-        raise "Not where I expected. #{m.current_page.uri} is not #{url}" unless m.current_page.uri != url
+        m = self.login(m, url, user, pw)
 
         m.current_page.tap do |page|
           tapas.title = page.title.strip
           tapas.episode_dir = File.join(dest,tapas.title.split("|").first.strip.downcase.gsub(%r{\s+},'-'))
           tapas.attachments = page.links_with(:href => %r{\bdownload\b})
+          puts "Fetching and saving #{tapas.title} into #{tapas.episode_dir}"
           FileUtils.mkdir(tapas.episode_dir)
           Dir.chdir(tapas.episode_dir) do |dir|
             tapas.attachments.each do |att|
@@ -61,6 +55,34 @@ module Scrapers
         
       end
     end
+    
+    # retrieve a list of URLs for shows from the showlist
+    def self.showlist(showlist_url, user=nil, pw=nil)
+      raise "Must give showlist url, user, and password" if showlist_url.to_s.empty? || user.to_s.empty? || pw.to_s.empty?
+
+      Mechanize.start do |m|
+        m = self.login(m, showlist_url, user, pw)
+        links = m.current_page.links_with(:text => "Read More")
+        s = URI.parse(showlist_url)
+        s.path = ''
+        links.map{|l| "#{s}#{l.href}" }
+      end
+
+      
+    end
+
+    def self.login(m, url, user, pw)
+      # First time, we will get redirected to the login page
+      m.get url
+      m.current_page.form.field_with(:name => "username").value = user
+      m.current_page.form.field_with(:name => "password").value = pw
+      m.current_page.form.submit
+
+      # Second time, we should land on episode page
+      m.get url
+      raise "Not where I expected. #{m.current_page.uri} is not #{url}" unless m.current_page.uri != url
+      m
+    end
+    
   end
-  
 end
