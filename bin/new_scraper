@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-require 'rubygems'
-require 'bundler/setup'
 require 'thor'
 require 'scrapers'
 require "active_support/core_ext/string/inflections"
