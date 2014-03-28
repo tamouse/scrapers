@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mechanize"
   spec.add_dependency "netrc"
   spec.add_dependency "thor"
+  spec.add_dependency "activesupport"
+  spec.add_dependency "highline"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
@@ -30,6 +32,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "vcr"
   
-  spec.add_dependency "active_support"
-  spec.add_dependency "highline"
 end
