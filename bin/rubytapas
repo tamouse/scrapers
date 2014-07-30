@@ -60,7 +60,11 @@ class RubyTapasDownload < Thor
     showlist_urls = Scrapers::RubyTapas.showlist(url, user, pw)
 
     showlist_urls.each do |url|
-      Scrapers::RubyTapas.scrape url, user, pw, destination
+      begin
+        Scrapers::RubyTapas.scrape url, user, pw, destination
+      rescue Errno::EEXIST
+        puts "#{episode exists, skipping}"
+      end
       print "pausing..."
       sleep 5
       puts "."
