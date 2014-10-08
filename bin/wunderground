@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require 'wunderground_thor'
+
+result = Wunderground.start(ARGV)
+
+if result.is_a?(Hash) && result.has_key?("location")
+   puts <<-EOT
+Current conditions for: #{result["location"]}:
+#{"=" * 80}
+Temperature: #{result["temp"]}
+#{result["condition"]}, Feels like #{result["feel"]}
+High today: #{result["high"]} Low: #{result["low"]}
+EOT
+else
+  puts result
+end

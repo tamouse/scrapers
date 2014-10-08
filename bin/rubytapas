@@ -63,7 +63,7 @@ class RubyTapasDownload < Thor
       begin
         Scrapers::RubyTapas.scrape url, user, pw, destination
       rescue Errno::EEXIST
-        puts "#{episode exists, skipping}"
+        puts "episode exists, skipping"
       end
       print "pausing..."
       sleep 5

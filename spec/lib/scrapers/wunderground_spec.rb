@@ -1,15 +1,15 @@
 # -*- ruby -*-
 require 'spec_helper'
-require 'scrapers/<%= name.underscore %>'
+require 'scrapers/wunderground'
 
 module Scrapers
 
-  describe <%= name %> do
+  describe Wunderground do
     it{should respond_to :scrape}
     context "scraping" do
       before(:all) do
-        @comic = VCR.use_cassette('<%= name.underscore %>') do
-          @result = Scrapers::<%= name %>.scrape
+        @scrape = VCR.use_cassette('wunderground') do
+          @result = Scrapers::Wunderground.scrape
         end
       end
       

@@ -7,7 +7,8 @@ module Scrapers
     def self.scrape(url)
       results = Hash.new
 
-      Mechanize.start(url) do |m|
+      Mechanize.start do |m|
+        m.get(url)
 
       end
 

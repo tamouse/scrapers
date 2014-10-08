@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'thor'
-require 'scrapers'
+# require 'scrapers'
 require "active_support/core_ext/string/inflections"
 require 'pry'
 
@@ -8,26 +8,28 @@ class NewScraper < Thor::Group
   include Thor::Actions
   
   argument :name
-  class_option :test_framework, :aliases => "-T", :default => :spec
-  
+  class_option :make_bin, :aliases => "-B", :default => true
+    
   def self.source_root
     File.expand_path("../../", __FILE__)
   end
 
-
-  def create_lib_file
-    template("templates/new_scraper.tt", "lib/scrapers/#{name.underscore}.rb")
+  def create_bin_file
+    return unless options["make_bin"]
+    template("templates/bin/new_scraper_bin.erb", "bin/#{file_name}")
+    template("templates/lib/new_scraper_thor.rb.erb", "lib/#{file_name}_thor.rb")
+    template("templates/spec/new_scraper_thor_spec.rb.erb", "spec/#{file_name}_thor_spec.rb")
   end
 
-  def create_test_file
+  def create_scraper_lib_file
+    template("templates/lib/scrapers/new_scraper_lib.rb.erb", "lib/scrapers/#{file_name}.rb")
+    template("templates/spec/lib/new_scraper_lib_spec.rb.erb", "spec/lib/scrapers/#{file_name}_spec.rb")
+  end
 
-    if %w[test_unit minitest test].include?(options["test_framework"])
-      test = "test"
-    else
-      test = "spec"
-    end
+  private
 
-    template("templates/new_scraper_#{test}.tt", "#{test}/scrapers/#{name.underscore}_#{test}.rb")
+  def file_name
+    name.underscore
   end
 
 end

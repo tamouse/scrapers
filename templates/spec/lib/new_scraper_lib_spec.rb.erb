@@ -1,0 +1,20 @@
+# -*- ruby -*-
+require 'spec_helper'
+require 'scrapers/<%= file_name %>'
+
+module Scrapers
+
+  describe <%= name %> do
+    it{should respond_to :scrape}
+    context "scraping" do
+      before(:all) do
+        @scrape = VCR.use_cassette('<%= file_name %>') do
+          @result = Scrapers::<%= name %>.scrape
+        end
+      end
+      
+      it {expect(@result).to_not be_nil}
+      
+    end
+  end
+end
