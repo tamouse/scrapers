@@ -9,5 +9,4 @@ group :development, :test do
   gem "pry-nav"
   gem "pry-rescue"
   gem "pry-stack_explorer"
-  gem "awesome_print"
 end

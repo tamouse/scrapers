@@ -21,8 +21,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mechanize"
   spec.add_dependency "netrc"
   spec.add_dependency "thor"
-  spec.add_dependency "activesupport"
+  spec.add_dependency "activesupport", "~> 4.1"
   spec.add_dependency "highline"
+  spec.add_dependency "awesome_print"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
