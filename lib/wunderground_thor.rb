@@ -1,6 +1,5 @@
 require 'thor'
 require 'scrapers/wunderground'
-require 'awesome_print'
 
 class Wunderground < Thor
 

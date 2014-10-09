@@ -1,6 +1,6 @@
 # -*- ruby -*-
 require 'mechanize'
-require 'pry'
+# require 'pry'
 
 module Scrapers
   module ManningBooks
