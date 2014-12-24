@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require 'thor'
-require 'netrc'
 require 'scrapers/manning_books'
 require 'awesome_print'
 
@@ -15,22 +14,16 @@ require 'awesome_print'
 
 class ManningBooks < Thor
 
-  MANNING = 'manning'
-
   desc "download", "Downloads all the editions of all the books on your dashboard"
   method_option :destination, :aliases => %w{-d --dest}, :desc => "Destination to store the downloads", :default => "."
   method_option :user, :aliases => %w{-u -U}, :desc => "Manning user. Default is read from $HOME/.netrc"
   method_option :password, :aliases => %w{-p -pw}, :desc => "Manning password. Default is read from $HOME/.netrc"
+  method_option :delay, :aliases => %w{-t}, :type => :numeric, :desc => "delay time between requests", :default => Scrapers::ManningBooks::DELAY_TIME
+  method_option :dry_run, :aliases => %w[-n], :type => :boolean, :desc => "dry run, do not download and save books", :default => false
 
   def download
-    netrc = Netrc.read
-    user, pw = netrc[MANNING]
-    user = options.fetch("user", user)
-    pw = options.fetch("password", pw)
-    destination = options.fetch("destination", nil)
-    STDERR.puts "destination: #{destination}, user: #{user}, pw: #{pw.length}"
     Signal.trap('INT', proc { STDERR.puts "Download Interrupted"; exit(-1)})
-    results = Scrapers::ManningBooks.scrape destination, user, pw
+    results = Scrapers::ManningBooks::Scraper.new(options).scrape
     ap results
   end
 
