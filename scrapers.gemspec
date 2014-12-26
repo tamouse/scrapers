@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activesupport", "~> 4.1"
   spec.add_dependency "highline"
   spec.add_dependency "awesome_print"
+  spec.add_dependency "stringex"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"

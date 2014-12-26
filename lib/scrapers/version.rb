@@ -1,8 +1,8 @@
 module Scrapers
   module Version
 
-    MAJOR = 2
-    MINOR = 1
+    MAJOR = 3
+    MINOR = 0
     BUILD = 0
 
   end
