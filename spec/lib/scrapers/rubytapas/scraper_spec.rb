@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'scrapers/rubytapas/scraper'
+require 'scrapers/rubytapas'
 
 describe Scrapers::RubyTapas::Scraper do
 
@@ -10,7 +10,13 @@ describe Scrapers::RubyTapas::Scraper do
   let(:scraper) { Scrapers::RubyTapas::Scraper.new(episode_number, options)}
   let(:episode_number) { "001" }
   let(:episode_title ) { "001 Binary Literals" }
-  let(:options) { { "destination" => "." } }
+  let(:netrc_reader) { double('netrc-reader', :user => 'user', :pw => 'pw') }
+  let(:options) do
+    {
+      "destination" => '.',
+      "netrc_reader" => netrc_reader
+    }
+  end
 
   before do
     allow(scraper).to receive(:fetch_feed).and_return(feed)
@@ -34,15 +40,6 @@ describe Scrapers::RubyTapas::Scraper do
   end
 
   describe "#scrape!" do
-
-    let(:netrc_reader) { double('netrc-reader', :user => 'user', :pw => 'pw') }
-    let(:options) do
-      {
-        "destination" => '.',
-        "netrc_reader" => netrc_reader
-      }
-    end
-
     before do
       allow_any_instance_of(Scrapers::RubyTapas::Downloader).to receive(:download!)
       allow(scraper).to receive(:friendly_pause)
