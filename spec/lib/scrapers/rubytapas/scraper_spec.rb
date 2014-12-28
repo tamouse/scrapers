@@ -10,16 +10,20 @@ describe Scrapers::RubyTapas::Scraper do
   let(:scraper) { Scrapers::RubyTapas::Scraper.new(episode_number, options)}
   let(:episode_number) { "001" }
   let(:episode_title ) { "001 Binary Literals" }
-  let(:netrc_reader) { double('netrc-reader', :user => 'user', :pw => 'pw') }
   let(:options) do
     {
       "destination" => '.',
-      "netrc_reader" => netrc_reader
     }
   end
-
+  let(:cart) {instance_spy("Scrapers::RubyTapas::DpdCart",
+                           :feed! => feed,
+                           :login! =>
+                           double("Subscription Content | RubyTapas"),
+                           :download! => [ 'filename',
+                                           'body' ]
+                          )}
   before do
-    allow(scraper).to receive(:fetch_feed).and_return(feed)
+    allow(Scrapers::RubyTapas::DpdCart).to receive(:new).and_return(cart)
   end
 
   describe "#episodes" do
@@ -41,22 +45,15 @@ describe Scrapers::RubyTapas::Scraper do
 
   describe "#scrape!" do
     before do
-      allow_any_instance_of(Scrapers::RubyTapas::Downloader).to receive(:download!)
       allow(scraper).to receive(:friendly_pause)
-    end
-
-    it "responds to :scrape!" do
-      expect(scraper).to respond_to(:scrape!)
+      allow(FileUtils).to receive(:mkdir).and_return(["download_dir"])
+      allow(File).to receive(:binwrite)
     end
 
     context "when scraping one episode" do
-      let(:scraper) { Scrapers::RubyTapas::Scraper.new(episode_number, options) }
-
       it "scrapes one episode" do
         expect(scraper).to receive(:find_by_episode).with(episode_number).and_call_original
         expect(scraper).to receive(:fetch_episodes).once.and_call_original
-        expect_any_instance_of(Scrapers::RubyTapas::Downloader).to receive(:login).once
-        expect_any_instance_of(Scrapers::RubyTapas::Downloader).to receive(:download!).once
         scraper.scrape!
       end
 
@@ -67,8 +64,6 @@ describe Scrapers::RubyTapas::Scraper do
 
       it "scrapes all the episodes" do
         expect(scraper).to receive(:fetch_episodes).once.and_call_original
-        expect_any_instance_of(Scrapers::RubyTapas::Downloader).to receive(:login).once
-        expect_any_instance_of(Scrapers::RubyTapas::Downloader).to receive(:download!).exactly(267).times
         scraper.scrape!
       end
     end

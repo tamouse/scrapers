@@ -1,9 +1,8 @@
-require 'netrc_reader'
-require 'uri'
 require 'nokogiri'
+require 'fileutils'
 require 'scrapers/rubytapas/config'
 require 'scrapers/rubytapas/episode'
-require 'scrapers/rubytapas/downloader'
+require 'scrapers/rubytapas/dpdcart'
 
 module Scrapers
   module RubyTapas
@@ -13,8 +12,7 @@ module Scrapers
     class Scraper 
 
       attr_accessor :user, :pw, :destination, :episode_number, :netrc_reader, :dry_run, :debug
-      # This will normally be calculated, but this allows injection
-      attr_writer :feed_url
+      attr_reader :dpdcart
 
       # *episode_number* is the RubyTapas episode number (note! not the post id!) of the
       # episode to download. If the episode number is the symbol :all, then all episodes
@@ -29,40 +27,37 @@ module Scrapers
       # - "destination": the root destination of the episode downloads
       def initialize(episode_number, options)
         self.episode_number = episode_number
-        self.netrc_reader = options.fetch("netrc_reader") { NetrcReader.new(RUBYTAPAS_HOST)}
-        self.user = options.fetch("user") { netrc_reader.user }
-        self.pw = options.fetch("pw") { netrc_reader.pw }
+        self.user = options["user"]
+        self.pw = options["pw"]
         self.destination = options.fetch("destination", Dir.pwd)
-        self.feed_url = options.fetch("feed_url", feed_url)
         self.dry_run = options["dry_run"]
         self.debug = options["debug"]
+        @dpdcart = Scrapers::RubyTapas::DpdCart.
+                   new(user, pw, {dry_run: dry_run, debug: debug})
         warn "DEBUG: episode_number: #{episode_number}, options: #{options.inspect}" if debug
       end
 
       # Perform the scraping operation
       def scrape!
-        downloader = Downloader.new(nil, destination, {user: user, pw: pw, debug: debug, dry_run: dry_run})
-        downloader.login unless dry_run
+        dpdcart.login! unless dry_run
         if all_episodes?
           episodes.each do |episode|
-            downloader.episode = episode
-
-            warn "Skipping episde #{episode.title}" if dry_run
 
             begin
-              downloader.download! unless dry_run
+              download(episode)
+              friendly_pause unless dry_run
             rescue Errno::EEXIST
               warn "Episode previously downloaded. Skipping."
             end
 
-            friendly_pause unless dry_run
           end
         else
           episode = find_by_episode(episode_number)
-          raise "Unknown episode for #{episode_number}" if episode.nil?
-          downloader.episode = episode
-          warn "Skipping episode #{episode.title}" if dry_run
-          downloader.download! unless dry_run
+          if episode.nil? 
+            raise "Unknown episode for #{episode_number}"
+          else
+            download(episode)
+          end
         end
       end
 
@@ -91,32 +86,34 @@ module Scrapers
         episode_number.to_s.downcase.to_sym == :all
       end
 
-      def feed_url
-        @feed_url ||= URI.parse("https://#{RUBYTAPAS_HOST}#{FEED_PATH}")
-      end
-
       # Builds a collection of all the episodes listed in the feed
       def fetch_episodes
-        feed = Nokogiri::XML.parse(fetch_feed)
+        feed = Nokogiri::XML.parse(dpdcart.feed!)
         feed.xpath("//item").map do |item|
           Episode.new(item)
         end
       end
 
-      # Fetches the feed.xml
-      # Returns the feed contents.
-      def fetch_feed
-        warn "DEBUG: fetching feed..." if debug
-        start_time = Time.now
-        uri = URI(feed_url)
-        request = Net::HTTP::Get.new(uri)
-        request.basic_auth user, pw
-        response = Net::HTTP.start(uri.host, uri.port, {:use_ssl => true}) do |http|
-          http.request(request)
+      def download(episode)
+        download_directory = make_download_directory(episode.slug)
+        episode.file_list.each do |file|
+          download_file(download_directory, file.href) unless dry_run
         end
-        stop_time = Time.now
-        warn "DEBUG: feed retreived in #{"%-03.3f" % (stop_time.to_f - start_time.to_f)} seconds" if debug
-        response.body
+      end
+
+      def download_file(dir, url)
+        warn "fetching #{url}" if debug
+        name, body = dpdcart.download!(url)
+        #require 'pry';binding.pry
+        File.binwrite(File.join(dir,name), body)
+        warn "saved #{name} to #{dir}" if debug
+      end
+
+
+      def make_download_directory(slug)
+        dir = File.join(File.realpath(destination), slug)
+        warn "Downloading to #{dir}" if debug
+        FileUtils.mkdir(dir).first unless dry_run
       end
 
       def friendly_pause(delay=5)
