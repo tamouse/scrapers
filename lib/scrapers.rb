@@ -11,5 +11,4 @@ module Scrapers
     u.path=''
     u.to_s
   end
-  alias_method :base, :base_url
 end
