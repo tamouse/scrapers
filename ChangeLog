@@ -1,4 +1,7 @@
 2014-12-27  Tamara Temple  <tamouse@gmail.com>
 
-	* 
+	* Replace lib/scrapers/rubytapas/downloader.rb with
+	lib/scrapers/rubytapas/dpdcart.rb and restructure
+	lib/scrapers/rubytapas/scraper.rb to use it as a service gateway
+	object.
 
