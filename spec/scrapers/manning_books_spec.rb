@@ -17,7 +17,7 @@ RSpec.describe Scrapers::ManningBooks::Scraper do
     it { is_expected.to respond_to :download_books }
   end
   describe "#login" do
-    let(:scraper) { Scrapers::ManningBooks::Scraper.new } 
+    let(:scraper) { Scrapers::ManningBooks::Scraper.new }
     let(:agent) { double('agent') }
 
     before do
@@ -46,7 +46,7 @@ RSpec.describe Scrapers::ManningBooks::Scraper do
         scraper.login(agent) { |m| @result = "in yield" }
         expect(@result).to eq("in yield")
       end
-      
+
     end
 
     context "when login is not passed a block" do
@@ -62,10 +62,14 @@ RSpec.describe Scrapers::ManningBooks::Scraper do
     let(:agent) {double('agent')}
     let(:books) do
       3.times.map do |i|
-        OpenStruct.new(href: "http://#{Scrapers::ManningBooks::DASHBOARD_URL}/#{i}")
+        {
+          title: "Book #{i}",
+          downloads: {
+            pdf: "path/to/download.pdf"
+          }
+        }
       end
     end
-
 
     before do
       allow(Scrapers::NetrcReader).to receive(:new) do
@@ -79,10 +83,9 @@ RSpec.describe Scrapers::ManningBooks::Scraper do
       save_stdout = $stdout
       $stdout = double('output').as_null_object
       expect(agent).to receive(:get).exactly(3).times
-      expect(agent).to receive(:current_page).exactly(3*4).times.and_return(agent)
+      expect(agent).to receive(:current_page).exactly(3*3).times.and_return(agent)
       expect(agent).to receive(:filename).exactly(3*2).times.and_return("FILENAME")
       expect(agent).to receive(:save!).exactly(3).times
-      expect(agent).to receive(:uri).exactly(3).times
       results = scraper.download_books(agent, books)
       $stdout = save_stdout
       expect(results.size).to eq(3)
