@@ -22,18 +22,20 @@ module Scrapers
       end
 
       def scrape
-        Mechanize.start do |m|
-          login(m) do |m|
-            book_downloads = m.current_page.links_with(:href => %r{/account/bookProduct/download})
-            Dir.chdir(destination) do |dir|
-              @results = download_books(m, book_downloads)
+        @results = nil
+        Dir.chdir(destination) do |dir|
+
+          Mechanize.start do |m|
+            login(m) do |m|
+              books = build_book_list(m.current_page)
+              @results = download_books(m, books)
             end
           end
-        end
 
-        Hash[@results]
+        end
+        @results
       end
-      
+
       def login(agent, &block)
         raise "Must provide a block to execute after logged in to site" unless block_given?
 
@@ -49,6 +51,33 @@ module Scrapers
         yield agent
       end
 
+      def build_book_list(page)
+        page.search('.book').map do |book|
+          {
+            title: book.at('[data-type=title]').children.first.text,
+            downloads: book.at('.book_downloads').search('a').map do |link|
+              [link.children.first.text.downcase.to_sym, link.attr(:href)]
+            end.to_h
+          }
+        end
+      end
+
+      def download_books(agent, books)
+        books.map do |book|
+          puts "Retrieving #{book[:title]}"
+          downloads = book[:downloads].map do |type, href|
+            next unless %i[pdf epub kindle].include?(type)
+            print "  downloading #{type} ..."
+            agent.get href unless dry_run
+            agent.current_page.save! unless dry_run
+            puts "saved #{agent.current_page.filename}"
+            [agent.current_page.filename, href]
+          end.compact.to_h
+          wait_a_bit delay_time
+          [book[:title], downloads]
+        end.to_h
+      end
+
       def wait_a_bit(delay)
         puts "delaying for #{delay} second(s)"
         %w[- * | +].cycle do |c|
@@ -60,25 +89,6 @@ module Scrapers
         print "\r"
       end
 
-
-      def download_books(agent, books)
-        books.map do |book|
-          bookname = book.node.parent.parent.parent.parent.at_css('h1').text
-          puts "Downloading #{bookname} from #{book.href}"
-          if dry_run
-            warn "dry run, not saving"
-          else
-            agent.get book.href
-            puts "Saving #{agent.current_page.filename}"
-            agent.current_page.save! # overwrite!
-          end
-          
-          wait_a_bit delay_time
-          [agent.current_page.filename, agent.current_page.uri.to_s]
-        end
-      end
-
     end
   end
 end
-
