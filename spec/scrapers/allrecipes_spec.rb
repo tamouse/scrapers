@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "scrapers/allrecipes"
 
 module Scrapers
 
@@ -11,7 +12,7 @@ module Scrapers
           Scrapers::AllRecipes.scrape(@url)
         end
       end
-      
+
       it "retrieves a recipe" do
         @recipe.should_not be_nil
       end
@@ -26,4 +27,3 @@ module Scrapers
     end
   end
 end
-

@@ -1,15 +1,5 @@
-=begin rdoc
-
-= DOWNLOAD_SPEC.RB
-
-*Author*::      Tamara Temple <tamara@tamaratemple.com>
-*Since*::       2013-05-27
-*Copyright*::   (c) 2013 Tamara Temple Web Development
-*License*::     MIT
-  
-=end
-
 require 'spec_helper'
+require "scrapers/download"
 require 'tmpdir'
 
 def in_tmpdir
@@ -24,7 +14,7 @@ end
 module Scrapers
 
   describe Download do
-    
+
     it {Scrapers::Download.should respond_to :download}
 
     it "should download and save the file" do
@@ -34,7 +24,7 @@ module Scrapers
           @file = Scrapers::Download.download(@url,dir)
         end
         @file.should =~ /.*snrrrrrrrrrrrf.*Imgur\.jpg/
-        File.exist?(@file).should be_true
+        File.exist?(@file).should be true
       end
     end
     it "should overwrite file with second download" do
@@ -46,7 +36,7 @@ module Scrapers
         end
         @file1.should eq @file2
         @file1.should eq File.join(dir,'sandwich.png')
-        File.exist?(@file1).should be_true
+        File.exist?(@file1).should be true
       end
     end
     it "should make a new file on second download" do
@@ -64,9 +54,9 @@ module Scrapers
 
         @file1.should_not eq @file2
         @file1.should eq File.join(dir,'sandwich.png')
-        File.exist?(@file1).should be_true
+        File.exist?(@file1).should be true
         @file2.should eq File.join(dir,'sandwich.png.1')
-        File.exist?(@file2).should be_true
+        File.exist?(@file2).should be true
       end
     end
   end
