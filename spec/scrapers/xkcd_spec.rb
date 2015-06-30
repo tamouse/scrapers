@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "scrapers/xkcd"
 
 describe Scrapers::Xkcd do
   it {should respond_to :scrape}

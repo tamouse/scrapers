@@ -1,0 +1,348 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://apod.nasa.gov/apod/astropix.html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mechanize/2.7.3 Ruby/2.2.0p0 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - apod.nasa.gov
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 21:47:29 GMT
+      Server:
+      - WebServer/1.0
+      Accept-Ranges:
+      - bytes
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<!doctype html>\n<html>\n<head>\n<title>Astronomy Picture of the Day\n</title>
+        \n<!-- gsfc meta tags -->\n<meta name=\"orgcode\" content=\"661\">\n<meta
+        name=\"rno\" content=\"phillip.a.newman\">\n<meta name=\"content-owner\" content=\"Jerry.T.Bonnell.1\">\n<meta
+        name=\"webmaster\" content=\"Stephen.F.Fantasia.1\">\n<meta name=\"description\"
+        content=\"A different astronomy and space science\nrelated image is featured
+        each day, along with a brief explanation.\">\n<!-- -->\n<meta name=\"keywords\"
+        content=\"Ceres, asteroid, mountain\">\n<!-- -->\n<script id=\"_fed_an_js_tag\"
+        type=\"text/javascript\"\nsrc=\"js/federated-analytics.all.min.js?agency=NASA\"></script>\n\n</head>\n\n<body
+        BGCOLOR=\"#F4F4FF\" text=\"#000000\" link=\"#0000FF\" vlink=\"#7F0F9F\"\nalink=\"#FF0000\">\n\n<center>\n<h1>
+        Astronomy Picture of the Day </h1>\n<p>\n\n<a href=\"archivepix.html\">Discover
+        the cosmos!</a>\nEach day a different image or photograph of our fascinating
+        universe is\nfeatured, along with a brief explanation written by a professional
+        astronomer.\n<p>\n\n2015 June 30 \n<br> \n<a href=\"image/1506/CeresMountain_Dawn_1041.jpg\">\n<IMG
+        SRC=\"image/1506/CeresMountain_Dawn_960.jpg\"\n alt=\"See Explanation.  Clicking
+        on the picture will download\n the highest resolution version available.\"></a>\n\n</center>\n\n<center>\n<b>
+        An Unusual Mountain on Asteroid Ceres </b> <br> \n<b> Image Credit: </b> \n<a
+        href=\"http://www.nasa.gov/\">NASA</a>, \n<a href=\"http://www.jpl.nasa.gov/\">JPL-Caltech</a>,
+        \n<a href=\"http://dawn.igpp.ucla.edu/\">UCLA</a>,\nMPS/DLR/IDA\n</center>
+        <p> \n\n<b> Explanation: </b> \nWhat created this large mountain on asteroid
+        Ceres?\n\nNo one is yet sure.\n\nAs if in anticipation of today being \n<a
+        href=\"http://www.asteroidday.org/\">Asteroid</a> \n<a href=\"https://en.wikipedia.org/wiki/Asteroid_Day\">Day</a>
+        on Earth, the robotic spacecraft \n<a href=\"http://dawn.jpl.nasa.gov/\">Dawn</a>
+        in orbit around Ceres took the best yet image of an unusually tall mountain
+        on the Asteroid Belt's largest asteroid.\n\nVisible at the top of the \n<a
+        href=\"http://www.nasa.gov/jpl/pia19578/dawn-survey-orbit-image-10\"\n>featured
+        image</a>, the exceptional mountain rises about \nfive kilometers up from
+        an area that otherwise appears pretty level.\n\nThe <a href=\"http://photojournal.jpl.nasa.gov/catalog/PIA19578\"\n>image</a>
+        was taken about two weeks ago from about 4,400 kilometers away. \n\nAlthough
+        <a href=\n\"http://www.slate.com/blogs/bad_astronomy/2015/06/22/ceres_dawn_images_reveal_a_5_km_tall_mountain.html\"\n>origin
+        hypotheses for the mountain</a> include volcanism, impacts, and plate tectonics,
+        clear evidence backing any of these is currently lacking. \n\nAlso visible
+        \n<a href=\"ap150610.html\">across Ceres'</a> surface are some enigmatic light
+        areas: \n<a href=\"ap150514.html\">bright spots</a> whose origin and composition
+        that also \nremain an \n<a href=\"http://i.ytimg.com/vi/OIamIdHV37I/maxresdefault.jpg\">active
+        topic of investigation</a>.\n\nEven though Dawn is expected to continue to
+        orbit Ceres, officially dubbed a \n<a href=\"https://en.wikipedia.org/wiki/Dwarf_planet\">dwarf
+        planet</a>, for millions of years, the \n<a href=\"https://www.youtube.com/watch?v=5UFTfwTxeEk\">hydrazine
+        fuel</a> used to point \n<a href=\"http://www.popsci.com/whats-next-dawn-mission-keri-bean\">Dawn's
+        communications</a> \nantenna toward Earth is expected to run out sometime
+        next year.\n\n\n<p> <center> \n<b> Tonight & tomorrow: </b> \n<a href=\"https://www.youtube.com/watch?v=_ppuCZR8Mkw\">See
+        Venus & Jupiter together after sunset</a> <br>\n<b> Tomorrow's picture: </b>star
+        clouds\n\n<p> <hr>\n<a href=\"ap150629.html\">&lt;</a>\n| <a href=\"archivepix.html\">Archive</a>\n|
+        <a href=\"lib/apsubmit2015.html\">Submissions</a> \n| <a href=\"lib/aptree.html\">Index</a>\n|
+        <a href=\"http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search\">Search</a>\n|
+        <a href=\"calendar/allyears.html\">Calendar</a>\n| <a href=\"/apod.rss\">RSS</a>\n|
+        <a href=\"lib/edlinks.html\">Education</a>\n| <a href=\"lib/about_apod.html\">About
+        APOD</a>\n| <a href=\n\"http://asterisk.apod.com/discuss_apod.php?date=150630\">Discuss</a>\n|
+        <a href=\"ap150701.html\">&gt;</a>\n\n<hr><p>\n<b> Authors & editors: </b>\n<a
+        href=\"http://www.phy.mtu.edu/faculty/Nemiroff.html\">Robert Nemiroff</a>\n(<a
+        href=\"http://www.phy.mtu.edu/\">MTU</a>) &\n<a href=\"http://antwrp.gsfc.nasa.gov/htmltest/jbonnell/www/bonnell.html\"\n>Jerry
+        Bonnell</a> (<a href=\"http://www.astro.umd.edu/\">UMCP</a>)<br>\n<b>NASA
+        Official: </b> Phillip Newman\n<a href=\"lib/about_apod.html#srapply\">Specific
+        rights apply</a>.<br>\n<a href=\"http://www.nasa.gov/about/highlights/HP_Privacy.html\">NASA
+        Web\nPrivacy Policy and Important Notices</a><br>\n<b>A service of:</b>\n<a
+        href=\"http://astrophysics.gsfc.nasa.gov/\">ASD</a> at\n<a href=\"http://www.nasa.gov/\">NASA</a>
+        /\n<a href=\"http://www.nasa.gov/centers/goddard/\">GSFC</a>\n<br><b>&</b>
+        <a href=\"http://www.mtu.edu/\">Michigan Tech. U.</a><br>\n</center>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 21:47:29 GMT
+- request:
+    method: get
+    uri: http://apod.nasa.gov/apod/ap150629.html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mechanize/2.7.3 Ruby/2.2.0p0 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - apod.nasa.gov
+      Referer:
+      - !ruby/object:URI::HTTP
+        scheme: http
+        user: 
+        password: 
+        host: apod.nasa.gov
+        port: 80
+        path: "/apod/astropix.html"
+        query: 
+        opaque: 
+        fragment: 
+        parser: &1 !ruby/object:URI::RFC3986_Parser
+          regexp:
+            :SCHEME: !ruby/regexp /\A[A-Za-z][A-Za-z0-9+\-.]*\z/
+            :USERINFO: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=A-Z_a-z~])*\z/
+            :HOST: !ruby/regexp /\A(?:(?<IP-literal>\[(?:(?<IPv6address>(?:\h{1,4}:){6}(?<ls32>\h{1,4}:\h{1,4}|(?<IPv4address>(?<dec-octet>[1-9]\d|1\d{2}|2[0-4]\d|25[0-5]|\d)\.\g<dec-octet>\.\g<dec-octet>\.\g<dec-octet>))|::(?:\h{1,4}:){5}\g<ls32>|\h{,4}::(?:\h{1,4}:){4}\g<ls32>|(?:(?:\h{1,4}:)?\h{1,4})?::(?:\h{1,4}:){3}\g<ls32>|(?:(?:\h{1,4}:){,2}\h{1,4})?::(?:\h{1,4}:){2}\g<ls32>|(?:(?:\h{1,4}:){,3}\h{1,4})?::\h{1,4}:\g<ls32>|(?:(?:\h{1,4}:){,4}\h{1,4})?::\g<ls32>|(?:(?:\h{1,4}:){,5}\h{1,4})?::\h{1,4}|(?:(?:\h{1,4}:){,6}\h{1,4})?::)|(?<IPvFuture>v\h+\.[!$&-.0-;=A-Z_a-z~]+))\])|\g<IPv4address>|(?<reg-name>(?:%\h\h|[!$&-.0-9;=A-Z_a-z~])*))\z/
+            :ABS_PATH: !ruby/regexp /\A\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*(?:\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*)*\z/
+            :REL_PATH: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~])+(?:\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*)*\z/
+            :QUERY: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~\/?])*\z/
+            :FRAGMENT: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~\/?])*\z/
+            :OPAQUE: !ruby/regexp /\A(?:[^\/].*)?\z/
+            :PORT: !ruby/regexp /\A[\x09\x0a\x0c\x0d ]*\d*[\x09\x0a\x0c\x0d ]*\z/
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 21:47:30 GMT
+      Server:
+      - WebServer/1.0
+      Accept-Ranges:
+      - bytes
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<!doctype html>\n<html>\n<head>\n<title> APOD: 2015 June 29 - Sunspot
+        Group AR 2339 Crosses the Sun \n</title> \n<!-- gsfc meta tags -->\n<meta
+        name=\"orgcode\" content=\"661\">\n<meta name=\"rno\" content=\"phillip.a.newman\">\n<meta
+        name=\"content-owner\" content=\"Jerry.T.Bonnell.1\">\n<meta name=\"webmaster\"
+        content=\"Stephen.F.Fantasia.1\">\n<meta name=\"description\" content=\"A
+        different astronomy and space science\nrelated image is featured each day,
+        along with a brief explanation.\">\n<!-- -->\n<meta name=\"keywords\" content=\"Sun,
+        sunspot, active region\">\n<!-- -->\n<script id=\"_fed_an_js_tag\" type=\"text/javascript\"\nsrc=\"js/federated-analytics.all.min.js?agency=NASA\"></script>\n\n</head>\n\n<body
+        BGCOLOR=\"#F4F4FF\" text=\"#000000\" link=\"#0000FF\" vlink=\"#7F0F9F\"\nalink=\"#FF0000\">\n\n<center>\n<h1>
+        Astronomy Picture of the Day </h1>\n<p>\n\n<a href=\"archivepix.html\">Discover
+        the cosmos!</a>\nEach day a different image or photograph of our fascinating
+        universe is\nfeatured, along with a brief explanation written by a professional
+        astronomer.\n<p>\n\n2015 June 29 \n<br> \n<iframe width=\"960\" height=\"540\"
+        src=\"https://www.youtube.com/embed/BejRxZAa66E?rel=0\" frameborder=\"0\"
+        allowfullscreen></iframe>\n\n</center>\n\n<center>\n<b> Sunspot Group AR 2339
+        Crosses the Sun </b> <br> \n<b> Images Credit: </b> \n<a href=\"http://www.nasa.gov/\">NASA</a>,
+        \n<a href=\"http://sdo.gsfc.nasa.gov/\">SDO</a>;\n<b> Video compilation &
+        Copyright: </b> \n<a href=\"mailto: astro .dot. stas @at@ gmail .dot. com\">Stanislav
+        Korotkiy</a>\n(<a href=\"http://vk.com/astro.nomy\">AstroAlert</a>) &\nMikhail
+        Chubarets; <br>\n<i> Music: </i> <a href=\"https://www.youtube.com/watch?v=vtHZqcDlUp4\"\n>Pas
+        de Deux (Bird Creek)</a> \n</center> <p> \n\n<b> Explanation: </b> \nHow do
+        sunspots evolve?\n\nLarge dark \n<a href=\"ap050216.html\">sunspot</a>s --
+        and the active regions that contain them -- may last for weeks, but all during
+        that time they are constantly changing.\n\nSuch variations were particularly
+        apparent a few weeks ago as the active region \n<a href=\"http://earthsky.org/todays-image/large-sunspot-group-ar-2339\">AR
+        2339</a> \ncame around the limb of the Sun and was tracked for the next 12
+        days by NASA's \n<a href=\"http://sdo.gsfc.nasa.gov/mission/\">Solar Dynamic
+        Observatory</a>. \n\nIn the \n<a href=\"https://www.youtube.com/watch?v=BejRxZAa66E\">featured
+        time lapse video</a>, \nsome sunspots drift apart, while others merge.\n\nAll
+        the while, the dark central \n<a href=\"http://www.spaceweatherlive.com/en/help/what-are-sunspots\">umbral
+        regions</a> \nshift internally and their surrounding lighter penumbras shimmer
+        and wave. \n\nThe surrounding \n<a href=\"http://missionscience.nasa.gov/sun/\">Sun</a>
+        \nappears to flicker as the carpet of yellow \n<a href=\"ap111106.html\">granules
+        come and go</a> on the time scale of hours. \n\nIn general, <a href=\"https://en.wikipedia.org/wiki/Sunspot\">sunspots</a>
+        \nare relatively cool regions where the local \n<a href=\"http://solarscience.msfc.nasa.gov/the_key.shtml\">magnetic
+        field</a> \npokes through the Sun's surface and inhibits heating.\n\nOver
+        the past week, an even more active region -- \n<a href=\"http://spaceweather.com/archive.php?view=1&day=23&month=06&year=2015\"\n>AR
+        2371</a> -- has been crossing the Sun and releasing powerful flares that have
+        resulted in \n<a href=\"http://spaceweathergallery.com/aurora_gallery.html\"\n>impressive
+        auroras</a> here on Earth.\n\n<p> <center> \n<b> Follow APOD on: </b> \n<a
+        href=\"https://www.facebook.com/AstronomyPictureOfTheDay\">Facebook</a>,  \n<a
+        href=\"https://plus.google.com/u/1/+AstronomyPictureOfTheDay\">Google Plus</a>,
+        or \n<a href=\"http://twitter.com/apod/\">Twitter</a> <br>\n<b> Tomorrow's
+        picture: </b><a href=\"ap150630.html\">asteroid day</a>\n\n<p> <hr>\n<a href=\"ap150628.html\">&lt;</a>\n|
+        <a href=\"archivepix.html\">Archive</a>\n| <a href=\"lib/apsubmit2015.html\">Submissions</a>
+        \n| <a href=\"lib/aptree.html\">Index</a>\n| <a href=\"http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search\">Search</a>\n|
+        <a href=\"calendar/allyears.html\">Calendar</a>\n| <a href=\"/apod.rss\">RSS</a>\n|
+        <a href=\"lib/edlinks.html\">Education</a>\n| <a href=\"lib/about_apod.html\">About
+        APOD</a>\n| <a href=\n\"http://asterisk.apod.com/discuss_apod.php?date=150629\">Discuss</a>\n|
+        <a href=\"ap150630.html\">&gt;</a>\n\n<hr><p>\n<b> Authors & editors: </b>\n<a
+        href=\"http://www.phy.mtu.edu/faculty/Nemiroff.html\">Robert Nemiroff</a>\n(<a
+        href=\"http://www.phy.mtu.edu/\">MTU</a>) &\n<a href=\"http://antwrp.gsfc.nasa.gov/htmltest/jbonnell/www/bonnell.html\"\n>Jerry
+        Bonnell</a> (<a href=\"http://www.astro.umd.edu/\">UMCP</a>)<br>\n<b>NASA
+        Official: </b> Phillip Newman\n<a href=\"lib/about_apod.html#srapply\">Specific
+        rights apply</a>.<br>\n<a href=\"http://www.nasa.gov/about/highlights/HP_Privacy.html\">NASA
+        Web\nPrivacy Policy and Important Notices</a><br>\n<b>A service of:</b>\n<a
+        href=\"http://astrophysics.gsfc.nasa.gov/\">ASD</a> at\n<a href=\"http://www.nasa.gov/\">NASA</a>
+        /\n<a href=\"http://www.nasa.gov/centers/goddard/\">GSFC</a>\n<br><b>&</b>
+        <a href=\"http://www.mtu.edu/\">Michigan Tech. U.</a><br>\n</center>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 21:47:30 GMT
+- request:
+    method: get
+    uri: http://apod.nasa.gov/apod/ap150630.html
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mechanize/2.7.3 Ruby/2.2.0p0 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - apod.nasa.gov
+      Referer:
+      - !ruby/object:URI::HTTP
+        scheme: http
+        user: 
+        password: 
+        host: apod.nasa.gov
+        port: 80
+        path: "/apod/ap150629.html"
+        query: 
+        opaque: 
+        fragment: 
+        parser: *1
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 21:47:30 GMT
+      Server:
+      - WebServer/1.0
+      Accept-Ranges:
+      - bytes
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=ISO-8859-1
+    body:
+      encoding: UTF-8
+      string: "<!doctype html>\n<html>\n<head>\n<title> APOD: 2015 June 30 - An Unusual
+        Mountain on Asteroid Ceres \n</title> \n<!-- gsfc meta tags -->\n<meta name=\"orgcode\"
+        content=\"661\">\n<meta name=\"rno\" content=\"phillip.a.newman\">\n<meta
+        name=\"content-owner\" content=\"Jerry.T.Bonnell.1\">\n<meta name=\"webmaster\"
+        content=\"Stephen.F.Fantasia.1\">\n<meta name=\"description\" content=\"A
+        different astronomy and space science\nrelated image is featured each day,
+        along with a brief explanation.\">\n<!-- -->\n<meta name=\"keywords\" content=\"Ceres,
+        asteroid, mountain\">\n<!-- -->\n<script id=\"_fed_an_js_tag\" type=\"text/javascript\"\nsrc=\"js/federated-analytics.all.min.js?agency=NASA\"></script>\n\n</head>\n\n<body
+        BGCOLOR=\"#F4F4FF\" text=\"#000000\" link=\"#0000FF\" vlink=\"#7F0F9F\"\nalink=\"#FF0000\">\n\n<center>\n<h1>
+        Astronomy Picture of the Day </h1>\n<p>\n\n<a href=\"archivepix.html\">Discover
+        the cosmos!</a>\nEach day a different image or photograph of our fascinating
+        universe is\nfeatured, along with a brief explanation written by a professional
+        astronomer.\n<p>\n\n2015 June 30 \n<br> \n<a href=\"image/1506/CeresMountain_Dawn_1041.jpg\">\n<IMG
+        SRC=\"image/1506/CeresMountain_Dawn_960.jpg\"\n alt=\"See Explanation.  Clicking
+        on the picture will download\n the highest resolution version available.\"></a>\n\n</center>\n\n<center>\n<b>
+        An Unusual Mountain on Asteroid Ceres </b> <br> \n<b> Image Credit: </b> \n<a
+        href=\"http://www.nasa.gov/\">NASA</a>, \n<a href=\"http://www.jpl.nasa.gov/\">JPL-Caltech</a>,
+        \n<a href=\"http://dawn.igpp.ucla.edu/\">UCLA</a>,\nMPS/DLR/IDA\n</center>
+        <p> \n\n<b> Explanation: </b> \nWhat created this large mountain on asteroid
+        Ceres?\n\nNo one is yet sure.\n\nAs if in anticipation of today being \n<a
+        href=\"http://www.asteroidday.org/\">Asteroid</a> \n<a href=\"https://en.wikipedia.org/wiki/Asteroid_Day\">Day</a>
+        on Earth, the robotic spacecraft \n<a href=\"http://dawn.jpl.nasa.gov/\">Dawn</a>
+        in orbit around Ceres took the best yet image of an unusually tall mountain
+        on the Asteroid Belt's largest asteroid.\n\nVisible at the top of the \n<a
+        href=\"http://www.nasa.gov/jpl/pia19578/dawn-survey-orbit-image-10\"\n>featured
+        image</a>, the exceptional mountain rises about \nfive kilometers up from
+        an area that otherwise appears pretty level.\n\nThe <a href=\"http://photojournal.jpl.nasa.gov/catalog/PIA19578\"\n>image</a>
+        was taken about two weeks ago from about 4,400 kilometers away. \n\nAlthough
+        <a href=\n\"http://www.slate.com/blogs/bad_astronomy/2015/06/22/ceres_dawn_images_reveal_a_5_km_tall_mountain.html\"\n>origin
+        hypotheses for the mountain</a> include volcanism, impacts, and plate tectonics,
+        clear evidence backing any of these is currently lacking. \n\nAlso visible
+        \n<a href=\"ap150610.html\">across Ceres'</a> surface are some enigmatic light
+        areas: \n<a href=\"ap150514.html\">bright spots</a> whose origin and composition
+        that also \nremain an \n<a href=\"http://i.ytimg.com/vi/OIamIdHV37I/maxresdefault.jpg\">active
+        topic of investigation</a>.\n\nEven though Dawn is expected to continue to
+        orbit Ceres, officially dubbed a \n<a href=\"https://en.wikipedia.org/wiki/Dwarf_planet\">dwarf
+        planet</a>, for millions of years, the \n<a href=\"https://www.youtube.com/watch?v=5UFTfwTxeEk\">hydrazine
+        fuel</a> used to point \n<a href=\"http://www.popsci.com/whats-next-dawn-mission-keri-bean\">Dawn's
+        communications</a> \nantenna toward Earth is expected to run out sometime
+        next year.\n\n\n<p> <center> \n<b> Tonight & tomorrow: </b> \n<a href=\"https://www.youtube.com/watch?v=_ppuCZR8Mkw\">See
+        Venus & Jupiter together after sunset</a> <br>\n<b> Tomorrow's picture: </b><a
+        href=\"ap150701.html\">star clouds</a>\n\n<p> <hr>\n<a href=\"ap150629.html\">&lt;</a>\n|
+        <a href=\"archivepix.html\">Archive</a>\n| <a href=\"lib/apsubmit2015.html\">Submissions</a>
+        \n| <a href=\"lib/aptree.html\">Index</a>\n| <a href=\"http://antwrp.gsfc.nasa.gov/cgi-bin/apod/apod_search\">Search</a>\n|
+        <a href=\"calendar/allyears.html\">Calendar</a>\n| <a href=\"/apod.rss\">RSS</a>\n|
+        <a href=\"lib/edlinks.html\">Education</a>\n| <a href=\"lib/about_apod.html\">About
+        APOD</a>\n| <a href=\n\"http://asterisk.apod.com/discuss_apod.php?date=150630\">Discuss</a>\n|
+        <a href=\"ap150701.html\">&gt;</a>\n\n<hr><p>\n<b> Authors & editors: </b>\n<a
+        href=\"http://www.phy.mtu.edu/faculty/Nemiroff.html\">Robert Nemiroff</a>\n(<a
+        href=\"http://www.phy.mtu.edu/\">MTU</a>) &\n<a href=\"http://antwrp.gsfc.nasa.gov/htmltest/jbonnell/www/bonnell.html\"\n>Jerry
+        Bonnell</a> (<a href=\"http://www.astro.umd.edu/\">UMCP</a>)<br>\n<b>NASA
+        Official: </b> Phillip Newman\n<a href=\"lib/about_apod.html#srapply\">Specific
+        rights apply</a>.<br>\n<a href=\"http://www.nasa.gov/about/highlights/HP_Privacy.html\">NASA
+        Web\nPrivacy Policy and Important Notices</a><br>\n<b>A service of:</b>\n<a
+        href=\"http://astrophysics.gsfc.nasa.gov/\">ASD</a> at\n<a href=\"http://www.nasa.gov/\">NASA</a>
+        /\n<a href=\"http://www.nasa.gov/centers/goddard/\">GSFC</a>\n<br><b>&</b>
+        <a href=\"http://www.mtu.edu/\">Michigan Tech. U.</a><br>\n</center>\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 21:47:30 GMT
+recorded_with: VCR 2.9.3

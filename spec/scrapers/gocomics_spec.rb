@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "scrapers/gocomics"
 
 module Scrapers
 
@@ -11,7 +12,7 @@ module Scrapers
           Scrapers::GoComics.scrape(@comic_strip)
         end
       end
-      
+
       it "retrieves a comic" do
         @comic.should_not be_nil
       end
@@ -39,8 +40,7 @@ module Scrapers
         it{@comic[:img_src].should_not be_empty}
         it{URI.parse(@comic[:img_src]).should be_a(URI::HTTP)}
       end
-      
+
     end
   end
 end
-

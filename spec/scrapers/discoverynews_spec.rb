@@ -1,15 +1,5 @@
-=begin rdoc
-
-= DISCOVERYNEWS_SPEC.RB
-
-*Author*::      Tamara Temple <tamouse@gmail.com>
-*Since*::       2013-06-15
-*Copyright*::   (c) 2013 Tamara Temple Web Development
-*License*::     MIT
-  
-=end
-
 require 'spec_helper'
+require 'scrapers/discoverynews'
 
 
 module Scrapers
@@ -24,7 +14,7 @@ module Scrapers
           Scrapers::DiscoNews.disco_downloads(url)
         end
       end
-      
+
       it "retrieves an array of images" do
         images.should be_a(Array)
         images.each do |i|
@@ -32,8 +22,7 @@ module Scrapers
         end
       end
     end
-    
+
   end
 
 end
-

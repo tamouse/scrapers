@@ -1,4 +1,5 @@
 require 'spec_helper'
+require "scrapers/sinfest"
 
 module Scrapers
 
@@ -10,7 +11,7 @@ module Scrapers
           Scrapers::Sinfest.scrape
         end
       end
-      
+
       it "retrieves a comic" do
         @comic.should_not be_nil
       end
@@ -39,8 +40,7 @@ module Scrapers
         it{URI.parse(@comic[:img_src]).should be_a(URI::HTTP)}
         it{@comic[:img_src].should eq 'http://sinfest.net/comikaze/comics/2013-10-19.gif'}
       end
-      
+
     end
   end
 end
-
