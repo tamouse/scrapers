@@ -9,7 +9,7 @@ module Scrapers
 
     # Scraper provides the methods to download, extract and build a collection
     # of RubyTapas episodes from the RubyTapas RSS feed.
-    class Scraper 
+    class Scraper
 
       attr_accessor :user, :pw, :destination, :episode_number, :netrc_reader, :dry_run, :debug
       attr_reader :dpdcart
@@ -39,7 +39,7 @@ module Scrapers
 
       # Perform the scraping operation
       def scrape!
-        dpdcart.login! unless dry_run
+        dpdcart.login!
         if all_episodes?
           episodes.each do |episode|
 
@@ -53,7 +53,7 @@ module Scrapers
           end
         else
           episode = find_by_episode(episode_number)
-          if episode.nil? 
+          if episode.nil?
             raise "Unknown episode for #{episode_number}"
           else
             download(episode)
@@ -97,15 +97,14 @@ module Scrapers
       def download(episode)
         download_directory = make_download_directory(episode.slug)
         episode.file_list.each do |file|
-          download_file(download_directory, file.href) unless dry_run
+          download_file(download_directory, file.href)
         end
       end
 
       def download_file(dir, url)
         warn "fetching #{url}" if debug
         name, body = dpdcart.download!(url)
-        #require 'pry';binding.pry
-        File.binwrite(File.join(dir,name), body)
+        File.binwrite(File.join(dir,name), body) unless dry_run
         warn "saved #{name} to #{dir}" if debug
       end
 
@@ -113,7 +112,11 @@ module Scrapers
       def make_download_directory(slug)
         dir = File.join(File.realpath(destination), slug)
         warn "Downloading to #{dir}" if debug
-        FileUtils.mkdir(dir).first unless dry_run
+        if dry_run
+          "no dir for dry run"
+        else
+          FileUtils.mkdir(dir).first
+        end
       end
 
       def friendly_pause(delay=5)
