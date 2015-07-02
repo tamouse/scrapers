@@ -13,12 +13,11 @@ describe Scrapers::RubyTapas::Scraper do
   let(:options) do
     {
       "destination" => '.',
+      "subscription" => 'rubytapas'
     }
   end
   let(:cart) {instance_spy("Scrapers::RubyTapas::DpdCart",
                            :feed! => feed,
-                           :login! =>
-                           double("Subscription Content | RubyTapas"),
                            :download! => [ 'filename',
                                            'body' ]
                           )}
@@ -28,7 +27,6 @@ describe Scrapers::RubyTapas::Scraper do
 
   describe "#episodes" do
     it "gets a collection of episodes" do
-      expect(scraper).to receive(:fetch_episodes).and_call_original
       expect(scraper.episodes.size).to eq(267)
     end
   end
@@ -53,7 +51,6 @@ describe Scrapers::RubyTapas::Scraper do
     context "when scraping one episode" do
       it "scrapes one episode" do
         expect(scraper).to receive(:find_by_episode).with(episode_number).and_call_original
-        expect(scraper).to receive(:fetch_episodes).once.and_call_original
         scraper.scrape!
       end
 
@@ -63,7 +60,6 @@ describe Scrapers::RubyTapas::Scraper do
       let(:scraper) { Scrapers::RubyTapas::Scraper.new(:all, options) }
 
       it "scrapes all the episodes" do
-        expect(scraper).to receive(:fetch_episodes).once.and_call_original
         scraper.scrape!
       end
     end
