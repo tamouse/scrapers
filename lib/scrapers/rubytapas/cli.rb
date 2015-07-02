@@ -4,7 +4,7 @@ require 'scrapers/rubytapas'
 
 module Scrapers
   module RubyTapas
-    
+
     # Thor script that handles things with Avdi Grimm's RubyTapas
     class CLI < Thor
 
@@ -15,6 +15,7 @@ module Scrapers
       method_option :destination, :aliases => %w{-d}, :desc => "Destination to store the downloads. Default is the current working directory.", :default => "."
       method_option :user, :aliases => %w{-u}, :desc => "dpdcart user. Default is read from $HOME/.netrc"
       method_option :pw, :aliases => %w{-p}, :desc => "dpdcart password. Default is read from $HOME/.netrc"
+      method_option :subscription, default: 'rubytapas'
       def download(episode)
         Scrapers::RubyTapas::Scraper.new(episode, options).scrape!
       end
@@ -23,6 +24,7 @@ module Scrapers
       desc "list", "Show a list of the available episodes"
       method_option :user, :aliases => %w{-u}, :desc => "dpdcart user. Default is read from $HOME/.netrc"
       method_option :pw, :aliases => %w{-p}, :desc => "dpdcart password. Default is read from $HOME/.netrc"
+      method_option :subscription, default: 'rubytapas'
       def list()
         Scrapers::RubyTapas::Scraper.new(nil, options).list!
       end

@@ -8,7 +8,6 @@ describe Scrapers::RubyTapas::DpdCart do
 
   describe "method signatures" do
     it { is_expected.to respond_to(:feed!) }
-    it { is_expected.to respond_to(:login!)}
     it { is_expected.to respond_to(:download!)}
   end
 
@@ -22,17 +21,6 @@ describe Scrapers::RubyTapas::DpdCart do
     end
   end
 
-  describe "#login!" do
-    it "shows the subscriber content page" do
-      VCR.use_cassette('rubytapas_login', record: :new_episodes,
-                       match_requests_on: [:method, :host, :path]
-                      ) do
-        expect(gateway.login!.page.title).to eq("Subscription Content | RubyTapas")
-      end
-    end
-  end
-
-
   describe "#download!" do
     let(:file) { "https://rubytapas.dpdcart.com/subscriber/download?file_id=26" }
     let(:name) { "001-binary-literals.html" }
@@ -44,7 +32,6 @@ describe Scrapers::RubyTapas::DpdCart do
       VCR.use_cassette('rubytapas_download', record: :new_episodes,
                        match_requests_on: [:method, :host, :path,
                                            :query]) do
-        gateway.login!
         filename, body = gateway.download! file
         expect(filename).to eq(name)
         expect(body.size).to eq(5744)
@@ -55,7 +42,6 @@ describe Scrapers::RubyTapas::DpdCart do
       VCR.use_cassette('rubytapas_download_twice', record: :new_episodes,
                        match_requests_on: [:method, :host, :path,
                                            :query]) do
-        gateway.login!
         filename, body = gateway.download! file
         expect(filename).to eq(name)
         filename, body = gateway.download! file2

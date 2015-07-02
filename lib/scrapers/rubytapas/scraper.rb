@@ -8,11 +8,12 @@ module Scrapers
   module RubyTapas
 
     # Scraper provides the methods to download, extract and build a collection
-    # of RubyTapas episodes from the RubyTapas RSS feed.
+    # of DPD cart subscription episode from the RubyTapas RSS feed.
     class Scraper
 
-      attr_accessor :user, :pw, :destination, :episode_number, :netrc_reader, :dry_run, :debug
+      attr_accessor :subscription, :user, :pw, :destination, :episode_number, :netrc_reader, :dry_run, :debug
       attr_reader :dpdcart
+      attr_reader :episodes
 
       # *episode_number* is the RubyTapas episode number (note! not the post id!) of the
       # episode to download. If the episode number is the symbol :all, then all episodes
@@ -26,6 +27,7 @@ module Scrapers
       # - "pw": the password of the RubyTapas account
       # - "destination": the root destination of the episode downloads
       def initialize(episode_number, options)
+        self.subscription = options.fetch("subscription") # let this fail if no subscription given.
         self.episode_number = episode_number
         self.user = options["user"]
         self.pw = options["pw"]
@@ -33,13 +35,12 @@ module Scrapers
         self.dry_run = options["dry_run"]
         self.debug = options["debug"]
         @dpdcart = Scrapers::RubyTapas::DpdCart.
-                   new(user, pw, {dry_run: dry_run, debug: debug})
-        warn "DEBUG: episode_number: #{episode_number}, options: #{options.inspect}" if debug
+          new(user, pw, subscription, {dry_run: dry_run, debug: debug})
+        @episodes ||= fetch_episodes
       end
 
       # Perform the scraping operation
       def scrape!
-        dpdcart.login!
         if all_episodes?
           episodes.each do |episode|
 
@@ -68,11 +69,6 @@ module Scrapers
             pager.puts format_episode(episode)
           end
         end
-      end
-
-      # Returns the collection of episodes.
-      def episodes
-        @episodes ||= fetch_episodes
       end
 
       # Retrieves the episode associated with *episode number*.

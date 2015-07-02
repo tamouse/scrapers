@@ -13,7 +13,6 @@ RSpec.describe "RubyTapas Thor Script", :type => :integration do
 
   let(:cart) do
     instance_spy("Scrapers::RubyTapas::DpdCart",
-                 :login! => "Subscription Content | RubyTapas",
                  :feed! => feed,
                  :download! => download
                 )
@@ -35,12 +34,12 @@ RSpec.describe "RubyTapas Thor Script", :type => :integration do
       it "retrieves one episode" do
         expect_any_instance_of(Scrapers::RubyTapas::Scraper).to receive(:scrape!).once.and_call_original
         expect(cart).to receive(:download!).exactly(3).times
-        
+
         VCR.use_cassette('rubytapas-download-1', :match_requests_on => [:method, :host, :path, :query]) do
           Scrapers::RubyTapas::CLI.start(%w[download 001 --destination=. --user=joan@example.com --pw=password])
         end
       end
-      
+
     end
 
     context "when scraping all episodes" do
@@ -48,7 +47,7 @@ RSpec.describe "RubyTapas Thor Script", :type => :integration do
       it "retrieves all episodes" do
         expect_any_instance_of(Scrapers::RubyTapas::Scraper).to receive(:scrape!).once.and_call_original
         expect(cart).to receive(:download!).exactly(933).times
-        
+
         VCR.use_cassette('rubytapas-download-all', :match_requests_on => [:method, :host, :path, :query]) do
           save_stdout = $stdout
           # $stdout = output
@@ -56,9 +55,9 @@ RSpec.describe "RubyTapas Thor Script", :type => :integration do
           $stdout = save_stdout
         end
       end
-      
+
     end
-    
+
   end
 
   describe "list command" do
@@ -73,7 +72,7 @@ RSpec.describe "RubyTapas Thor Script", :type => :integration do
       Scrapers::RubyTapas::CLI.start(%w[list --user=joan@example.com --pw=password])
     end
   end
-  
+
   describe "version command" do
     it "prints the version numbers for rubytapas and scrapers" do
       save_stdout = $stdout
