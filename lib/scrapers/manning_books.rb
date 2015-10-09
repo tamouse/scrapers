@@ -56,8 +56,11 @@ module Scrapers
           {
             title: book.at('[data-type=title]').children.first.text,
             downloads: book.at('.book_downloads').search('a').map do |link|
-              [link.children.first.text.downcase.to_sym, link.attr(:href)]
-            end.to_h
+              type = link.children.first.text.downcase
+              next unless type.match(/download/)
+              type = type.split(" ").last
+              [type.to_sym, link.attr(:href)]
+            end.compact.to_h
           }
         end
       end
